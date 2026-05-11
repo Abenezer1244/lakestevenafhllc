@@ -472,8 +472,8 @@ body {
 
 /* SCROLL REVEAL */
 @media (prefers-reduced-motion: no-preference) {
-  [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease-out, transform 0.55s ease-out; }
-  [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+  .js-ready [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease-out, transform 0.55s ease-out; }
+  .js-ready [data-reveal].revealed { opacity: 1; transform: translateY(0); }
 }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 </style>
@@ -756,10 +756,14 @@ drawerOverlay.addEventListener('click', closeDrawer);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 
 /* Scroll reveal */
+document.documentElement.classList.add('js-ready');
 const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); } });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
+document.querySelectorAll('[data-reveal]').forEach(el => {
+  const r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add('revealed'); } else { revealObs.observe(el); }
+});
 </script>
 </body>
 </html>
