@@ -741,7 +741,8 @@ body {
 <script>
 /* Nav scroll state — on inner pages nav starts solid */
 const nav = document.getElementById('site-nav');
-function updateNav() { nav.classList.toggle('scrolled', window.scrollY >= window.innerHeight * 0.85); }
+const _hero = document.querySelector('.page-hero');
+function updateNav() { const b = _hero ? _hero.getBoundingClientRect().bottom : 0; nav.classList.toggle('scrolled', b <= 72); }
 window.addEventListener('scroll', updateNav, { passive: true });
 updateNav();
 
