@@ -1589,68 +1589,6 @@ setInterval(() => {
 }, 5000);
 
 
-/* ── Mobile nav drawer ── */
-const drawer = document.getElementById('nav-drawer');
-const drawerOverlay = document.getElementById('nav-drawer-overlay');
-const drawerClose = document.getElementById('nav-drawer-close');
-const hamburger = document.querySelector('.nav-hamburger');
-
-let _lastFocus;
-function openDrawer() {
-  _lastFocus = document.activeElement;
-  drawer.classList.add('open');
-  drawer.removeAttribute('aria-hidden');
-  hamburger.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-  drawerClose.focus();
-}
-function closeDrawer() {
-  drawer.classList.remove('open');
-  drawer.setAttribute('aria-hidden', 'true');
-  hamburger.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-  _lastFocus?.focus();
-}
-hamburger.addEventListener('click', openDrawer);
-drawerClose.addEventListener('click', closeDrawer);
-drawerOverlay.addEventListener('click', closeDrawer);
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
-
-/* ── Contact form → Formspree ── */
-const contactForm = document.getElementById('contact-form');
-const submitBtn = document.getElementById('contact-submit');
-const formStatus = document.getElementById('form-status');
-
-if (contactForm) {
-  contactForm.addEventListener('submit', async e => {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-    formStatus.textContent = '';
-
-    try {
-      const res = await fetch(contactForm.action, {
-        method: 'POST',
-        body: new FormData(contactForm),
-        headers: { Accept: 'application/json' }
-      });
-      if (res.ok) {
-        submitBtn.textContent = 'Message sent!';
-        submitBtn.style.opacity = '0.6';
-        formStatus.style.color = 'rgba(74,124,89,0.9)';
-        formStatus.textContent = 'Thank you — we’ll be in touch within one business day.';
-        contactForm.reset();
-      } else {
-        throw new Error();
-      }
-    } catch {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Message';
-      formStatus.style.color = 'rgba(197,169,106,0.9)';
-      formStatus.textContent = 'Something went wrong. Please call us at (206) 383-3109.';
-    }
-  });
-}
 </script>
 
 <script>
@@ -1689,6 +1627,68 @@ if (contactForm) {
     if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add('revealed'); }
     else { revealObs.observe(el); }
   });
+
+  /* ── Mobile nav drawer ── */
+  var drawer = document.getElementById('nav-drawer');
+  var drawerOverlay = document.getElementById('nav-drawer-overlay');
+  var drawerClose = document.getElementById('nav-drawer-close');
+  var hamburger = document.querySelector('.nav-hamburger');
+  var _lastFocus;
+
+  function openDrawer() {
+    _lastFocus = document.activeElement;
+    drawer.classList.add('open');
+    drawer.removeAttribute('aria-hidden');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    drawerClose.focus();
+  }
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    if (_lastFocus) _lastFocus.focus();
+  }
+  hamburger.addEventListener('click', openDrawer);
+  drawerClose.addEventListener('click', closeDrawer);
+  drawerOverlay.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeDrawer(); });
+
+  /* ── Contact form ── */
+  var contactForm = document.getElementById('contact-form');
+  var submitBtn = document.getElementById('contact-submit');
+  var formStatus = document.getElementById('form-status');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      formStatus.textContent = '';
+
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' }
+      }).then(function(res) {
+        if (res.ok) {
+          submitBtn.textContent = 'Message sent!';
+          submitBtn.style.opacity = '0.6';
+          formStatus.style.color = 'rgba(74,124,89,0.9)';
+          formStatus.textContent = 'Thank you — we’ll be in touch within one business day.';
+          contactForm.reset();
+        } else {
+          throw new Error();
+        }
+      }).catch(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+        formStatus.style.color = 'rgba(197,169,106,0.9)';
+        formStatus.textContent = 'Something went wrong. Please call us at (206) 383-3109.';
+      });
+    });
+  }
 })();
 </script>
 
