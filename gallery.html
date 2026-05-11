@@ -23,7 +23,7 @@
 {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "MedicalBusiness"],
-  "@id": "https://www.lakestevenafh.com/#organization",
+  "@id": "https://www.lakestevenafh.com/#local-business",
   "name": "Lake Stevens AFH LLC",
   "alternateName": "Lake Stevens AFH",
   "url": "https://www.lakestevenafh.com",
@@ -32,11 +32,21 @@
   "description": "A premium adult family home in Lake Stevens, WA offering personalized 24/7 senior care. Maximum 4 residents.",
   "address": {"@type": "PostalAddress","streetAddress": "11921 24th PL NE","addressLocality": "Lake Stevens","addressRegion": "WA","postalCode": "98258","addressCountry": "US"},
   "geo": {"@type": "GeoCoordinates","latitude": 48.0145,"longitude": -122.0637},
-  "areaServed": {"@type": "City","name": "Lake Stevens"}
+  "areaServed": [
+    {"@type": "City", "name": "Lake Stevens"},
+    {"@type": "City", "name": "Everett"},
+    {"@type": "City", "name": "Marysville"},
+    {"@type": "City", "name": "Monroe"},
+    {"@type": "City", "name": "Arlington"},
+    {"@type": "City", "name": "Bothell"},
+    {"@type": "AdministrativeArea", "name": "Snohomish County"}
+  ]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Manrope:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Manrope:wght@300;400;500&display=swap"></noscript>
 <style>
@@ -170,9 +180,9 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 
 <nav class="site-nav" aria-label="Main navigation" id="site-nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Lake Stevens AFH — Home">Lake Stevens AFH</a>
+    <a href="/" class="nav-logo" aria-label="Lake Stevens AFH — Home">Lake Stevens AFH</a>
     <ul class="nav-links" role="list">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="about-us.html">About Us</a></li>
       <li><a href="gallery.html" aria-current="page">Gallery</a></li>
       <li><a href="services.html">Services</a></li>
@@ -191,7 +201,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
       <button class="nav-drawer-close" id="nav-drawer-close" aria-label="Close menu"></button>
     </div>
     <ul class="nav-drawer-links" role="list">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="about-us.html">About Us</a></li>
       <li><a href="gallery.html" aria-current="page">Gallery</a></li>
       <li><a href="services.html">Services</a></li>
@@ -327,7 +337,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
       <nav aria-label="Footer navigation">
         <p class="footer-col-title">Navigate</p>
         <ul class="footer-links" role="list">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="about-us.html">About Us</a></li>
           <li><a href="services.html">Our Services</a></li>
           <li><a href="gallery.html">Gallery</a></li>

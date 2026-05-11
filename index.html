@@ -26,7 +26,7 @@
 {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "MedicalBusiness"],
-  "@id": "https://www.lakestevenafh.com/#organization",
+  "@id": "https://www.lakestevenafh.com/#local-business",
   "name": "Lake Stevens AFH LLC",
   "alternateName": "Lake Stevens AFH",
   "url": "https://www.lakestevenafh.com",
@@ -50,16 +50,36 @@
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
     "opens": "00:00",
-    "closes": "23:59"
+    "closes": "24:00"
   }],
   "priceRange": "$$-$$$",
   "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
-  "areaServed": {"@type": "City", "name": "Lake Stevens"},
-  "serviceType": ["Adult Family Home", "Senior Care", "Dementia Care", "Assisted Living"]
+  "areaServed": [
+    {"@type": "City", "name": "Lake Stevens"},
+    {"@type": "City", "name": "Everett"},
+    {"@type": "City", "name": "Marysville"},
+    {"@type": "City", "name": "Monroe"},
+    {"@type": "City", "name": "Arlington"},
+    {"@type": "City", "name": "Bothell"},
+    {"@type": "AdministrativeArea", "name": "Snohomish County"}
+  ],
+  "serviceType": ["Adult Family Home", "Senior Care", "Dementia Care", "Assisted Living"],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "3",
+    "reviewCount": "3"
+  }
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://esm.sh">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1800&q=80" fetchpriority="high">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Manrope:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Manrope:wght@300;400;500&display=swap"></noscript>
 <style>
@@ -1095,7 +1115,7 @@ body {
   <div class="nav-inner">
     <a href="/" class="nav-logo" aria-label="Lake Stevens AFH — Home">Lake Stevens AFH</a>
     <ul class="nav-links" role="list">
-      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="/" aria-current="page">Home</a></li>
       <li><a href="about-us.html">About Us</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="services.html">Services</a></li>
@@ -1117,7 +1137,7 @@ body {
       <button class="nav-drawer-close" id="nav-drawer-close" aria-label="Close menu"></button>
     </div>
     <ul class="nav-drawer-links" role="list">
-      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="/" aria-current="page">Home</a></li>
       <li><a href="about-us.html">About Us</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="services.html">Services</a></li>
@@ -1148,7 +1168,7 @@ body {
     <p class="sc-label hero-eyebrow">Lake Stevens, Washington &nbsp;·&nbsp; Adult Family Home</p>
 
     <h1 class="hero-h1" data-pretext="hero">
-      Exceptional care in a<br>warm, family environment
+      Exceptional care in a warm, family environment
     </h1>
 
     <p class="hero-what">A licensed adult family home in Lake Stevens, WA providing 24/7 personalized care for seniors — in a real home, not a facility. Maximum 4 residents.</p>
@@ -1193,7 +1213,7 @@ body {
   <div class="container">
     <div class="who-header" data-reveal>
       <p class="sc-label">Who we serve</p>
-      <h2>Is Lake Stevens AFH<br>the right fit for your family?</h2>
+      <h2>Is Lake Stevens AFH the right fit for your family?</h2>
       <p>We serve seniors and families who want genuine, personalized care in a real home — not a large institution with rotating staff and numbered beds.</p>
     </div>
     <div class="who-grid">
@@ -1518,7 +1538,7 @@ body {
       <nav aria-label="Footer navigation">
         <p class="footer-col-title">Navigate</p>
         <ul class="footer-links" role="list">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="about-us.html">About Us</a></li>
           <li><a href="services.html">Our Services</a></li>
           <li><a href="gallery.html">Gallery</a></li>
