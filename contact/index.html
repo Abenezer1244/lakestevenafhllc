@@ -336,12 +336,11 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 
       <div data-reveal>
         <span class="contact-form-label">Send us a message</span>
-        <!--
-          SETUP: Sign up at formspree.io, create a new form, copy your form ID,
-          and replace YOUR_FORM_ID in the action URL below.
-        -->
-        <form class="contact-form" id="contact-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" aria-label="Contact form">
-          <input type="hidden" name="_subject" value="New inquiry — Lake Stevens AFH website">
+        <form class="contact-form" id="contact-form" method="POST" action="https://api.web3forms.com/submit" aria-label="Contact form">
+          <input type="hidden" name="access_key" value="debe3ff9-046d-4c6f-9ac2-c587c4a0b481">
+          <input type="hidden" name="subject" value="New inquiry — Lake Stevens AFH website">
+          <input type="hidden" name="from_name" value="Lake Stevens AFH Website">
+          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" aria-hidden="true">
           <div class="contact-form-row">
             <input type="text" name="first-name" placeholder="First Name" autocomplete="given-name" required>
             <input type="text" name="last-name" placeholder="Last Name" autocomplete="family-name" required>
