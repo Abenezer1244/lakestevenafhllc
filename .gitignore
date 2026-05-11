@@ -1,0 +1,8 @@
+.claude/
+CLAUDE.md
+DESIGN.md
+progress.md
+*.zip
+*.txt
+Thumbs.db
+.DS_Store
