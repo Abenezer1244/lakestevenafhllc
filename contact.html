@@ -39,7 +39,8 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Manrope:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Manrope:wght@300;400;500&display=swap"></noscript>
 <style>
 :root {
   --parchment: #FAF8F5; --hearthstone: #F0EBE3; --navy: #1B2A4A;
@@ -73,7 +74,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--gold); }
 .nav-cta { display: none; }
 @media (min-width: 768px) { .nav-cta { display: inline-block; } }
-.nav-hamburger { display: flex; flex-direction: column; gap: 5px; padding: 4px; }
+.nav-hamburger { display: flex; flex-direction: column; gap: 5px; padding: 4px; min-width: 44px; min-height: 44px; justify-content: center; align-items: center; }
 @media (min-width: 768px) { .nav-hamburger { display: none; } }
 .nav-hamburger span { display: block; width: 22px; height: 1px; background: rgba(237,232,224,0.75); }
 
@@ -130,6 +131,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 .contact-form input, .contact-form select, .contact-form textarea { width: 100%; background: var(--white); border: 1px solid rgba(27,42,74,0.15); color: var(--navy); padding: 0.875rem 1.25rem; font-family: var(--font-body); font-size: 14px; font-weight: 300; outline: none; transition: border-color 0.2s; appearance: none; }
 .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(27,42,74,0.3); }
 .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--gold); }
+.contact-form input:focus-visible, .contact-form select:focus-visible, .contact-form textarea:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .contact-form select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C5A96A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1.25rem center; padding-right: 2.5rem; }
 .contact-form select option { background: var(--white); color: var(--navy); }
 .contact-form textarea { resize: vertical; min-height: 120px; }
@@ -186,7 +188,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
       <li><a href="contact.html" aria-current="page">Contact Us</a></li>
     </ul>
     <a href="contact.html" class="btn-primary nav-cta" style="padding:0.6rem 1.5rem;">Schedule a Visit</a>
-    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -306,33 +308,33 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">What is an adult family home?</button>
-        <div class="faq-answer" hidden>
-          <p>An adult family home (AFH) is a licensed residential care setting in a private house, serving a small number of residents — in our case, a maximum of six. Unlike assisted living facilities or nursing homes, AFHs provide personalized care in a genuine home environment. We are licensed and regulated by the Washington State Department of Social and Health Services (DSHS).</p>
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">What is an adult family home?</button>
+        <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1" hidden>
+          <p>An adult family home (AFH) is a licensed residential care setting in a private house, serving a small number of residents — in our case, a maximum of four. Unlike assisted living facilities or nursing homes, AFHs provide personalized care in a genuine home environment. We are licensed and regulated by the Washington State Department of Social and Health Services (DSHS).</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">What does care cost, and is it covered by insurance?</button>
-        <div class="faq-answer" hidden>
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">What does care cost, and is it covered by insurance?</button>
+        <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden>
           <p>Adult family home care is typically private-pay. Some long-term care insurance policies cover AFH costs — we recommend contacting your insurer to confirm. Medicaid (through Washington's ALTSA program) may also cover qualifying residents. We're happy to discuss costs in detail during a conversation — every situation is different, and we'll be straightforward with you.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">How do I know if Lake Stevens AFH is the right fit?</button>
-        <div class="faq-answer" hidden>
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">How do I know if Lake Stevens AFH is the right fit?</button>
+        <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden>
           <p>The best way is to visit. We invite you to walk through our home, meet our staff, and ask every question you have. We'll also be honest with you if we feel our setting isn't the right match for your loved one's needs — we'd rather help you find the right fit than take on care we can't provide well.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">Can I visit any time, or are there visiting hours?</button>
-        <div class="faq-answer" hidden>
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">Can I visit any time, or are there visiting hours?</button>
+        <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden>
           <p>There are no formal visiting hours. This is your loved one's home — family is always welcome. We simply ask that you call ahead for evening or early-morning visits so we can make sure the timing works well for your loved one.</p>
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">Do you have availability right now?</button>
-        <div class="faq-answer" hidden>
-          <p>We maintain a maximum of six residents and do have periods of availability. Because placements at our home tend to be filled through referrals and word of mouth, we recommend reaching out sooner rather than later. Contact us and we'll let you know current availability and how to stay informed if there's a wait.</p>
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">Do you have availability right now?</button>
+        <div class="faq-answer" id="faq-a5" role="region" aria-labelledby="faq-q5" hidden>
+          <p>We maintain a maximum of four residents and do have periods of availability. Because placements at our home tend to be filled through referrals and word of mouth, we recommend reaching out sooner rather than later. Contact us and we'll let you know current availability and how to stay informed if there's a wait.</p>
         </div>
       </div>
     </div>
@@ -375,7 +377,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
     </div>
     <div class="footer-bottom">
       <p class="footer-signature">A home built with care, for the people you love.</p>
-      <p class="footer-copy">© 2026 Lake Stevens AFH &nbsp;·&nbsp; <a href="privacy.html" style="color:inherit;">Privacy</a></p>
+      <p class="footer-copy">© 2026 Lake Stevens AFH </p>
     </div>
   </div>
 </footer>
@@ -385,8 +387,9 @@ const drawer = document.getElementById('nav-drawer');
 const drawerOverlay = document.getElementById('nav-drawer-overlay');
 const drawerClose = document.getElementById('nav-drawer-close');
 const hamburger = document.querySelector('.nav-hamburger');
-function openDrawer() { drawer.classList.add('open'); drawer.removeAttribute('aria-hidden'); hamburger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; drawerClose.focus(); }
-function closeDrawer() { drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+let _lastFocus;
+function openDrawer() { _lastFocus = document.activeElement; drawer.classList.add('open'); drawer.removeAttribute('aria-hidden'); hamburger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; drawerClose.focus(); }
+function closeDrawer() { drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; _lastFocus?.focus(); }
 hamburger.addEventListener('click', openDrawer);
 drawerClose.addEventListener('click', closeDrawer);
 drawerOverlay.addEventListener('click', closeDrawer);

@@ -60,7 +60,8 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Manrope:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Manrope:wght@300;400;500&display=swap"></noscript>
 <style>
 /* ── DESIGN TOKENS ── */
 :root {
@@ -213,6 +214,10 @@ body {
   flex-direction: column;
   gap: 5px;
   padding: 4px;
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  align-items: center;
 }
 @media (min-width: 768px) { .nav-hamburger { display: none; } }
 .nav-hamburger span {
@@ -661,6 +666,9 @@ body {
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus { border-color: var(--gold); }
+.contact-form input:focus-visible,
+.contact-form select:focus-visible,
+.contact-form textarea:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .contact-form select option { background: var(--navy); }
 .contact-form textarea { resize: vertical; min-height: 110px; }
 .contact-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -1079,7 +1087,7 @@ body {
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
     <a href="contact.html" class="btn-primary nav-cta" style="padding:0.6rem 1.5rem;">Schedule a Visit</a>
-    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -1517,7 +1525,7 @@ body {
     </div>
     <div class="footer-bottom">
       <p class="footer-signature">A home built with care, for the people you love.</p>
-      <p class="footer-copy">© 2026 Lake Stevens AFH &nbsp;·&nbsp; <a href="privacy.html" style="color:inherit;">Privacy</a></p>
+      <p class="footer-copy">© 2026 Lake Stevens AFH </p>
     </div>
   </div>
 </footer>
@@ -1602,7 +1610,9 @@ const drawerOverlay = document.getElementById('nav-drawer-overlay');
 const drawerClose = document.getElementById('nav-drawer-close');
 const hamburger = document.querySelector('.nav-hamburger');
 
+let _lastFocus;
 function openDrawer() {
+  _lastFocus = document.activeElement;
   drawer.classList.add('open');
   drawer.removeAttribute('aria-hidden');
   hamburger.setAttribute('aria-expanded', 'true');
@@ -1614,6 +1624,7 @@ function closeDrawer() {
   drawer.setAttribute('aria-hidden', 'true');
   hamburger.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
+  _lastFocus?.focus();
 }
 hamburger.addEventListener('click', openDrawer);
 drawerClose.addEventListener('click', closeDrawer);

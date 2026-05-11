@@ -39,7 +39,8 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Manrope:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Manrope:wght@300;400;500&display=swap"></noscript>
 <style>
 :root {
   --parchment: #FAF8F5; --hearthstone: #F0EBE3; --navy: #1B2A4A;
@@ -73,7 +74,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--gold); }
 .nav-cta { display: none; }
 @media (min-width: 768px) { .nav-cta { display: inline-block; } }
-.nav-hamburger { display: flex; flex-direction: column; gap: 5px; padding: 4px; }
+.nav-hamburger { display: flex; flex-direction: column; gap: 5px; padding: 4px; min-width: 44px; min-height: 44px; justify-content: center; align-items: center; }
 @media (min-width: 768px) { .nav-hamburger { display: none; } }
 .nav-hamburger span { display: block; width: 22px; height: 1px; background: rgba(237,232,224,0.75); }
 
@@ -179,7 +180,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
     <a href="contact.html" class="btn-primary nav-cta" style="padding:0.6rem 1.5rem;">Schedule a Visit</a>
-    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -230,7 +231,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
       <div class="service-text" data-reveal>
         <p class="sc-label">Memory &amp; cognitive support</p>
         <h2 class="service-h2">Dementia &amp; Memory Care</h2>
-        <p class="service-body">Our intimate environment is uniquely suited to memory care. With only six residents, our caregivers maintain consistent routines, familiar faces, and a calm atmosphere — all clinically shown to reduce distress in residents with dementia and Alzheimer's.</p>
+        <p class="service-body">Our intimate environment is uniquely suited to memory care. With only four residents, our caregivers maintain consistent routines, familiar faces, and a calm atmosphere — all clinically shown to reduce distress in residents with dementia and Alzheimer's.</p>
         <p class="service-body">We are trained in person-centered dementia care approaches and work closely with families and physicians to adapt care as needs evolve.</p>
         <ul class="service-features">
           <li>Consistent staff — no rotation of unfamiliar faces</li>
@@ -315,7 +316,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
     <div class="care-approach-header" data-reveal>
       <p class="sc-label" style="color:rgba(197,169,106,0.8);">At a glance</p>
       <h2 class="care-approach-h2">What you can count on, every day</h2>
-      <p class="care-approach-sub">Six residents. The same caregivers. Every single day.</p>
+      <p class="care-approach-sub">Four residents. The same caregivers. Every single day.</p>
     </div>
     <div class="care-stats">
       <div data-reveal><div class="care-stat-num">24/7</div><div class="care-stat-label">Awake staff on-site</div></div>
@@ -374,7 +375,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
     </div>
     <div class="footer-bottom">
       <p class="footer-signature">A home built with care, for the people you love.</p>
-      <p class="footer-copy">© 2026 Lake Stevens AFH &nbsp;·&nbsp; <a href="privacy.html" style="color:inherit;">Privacy</a></p>
+      <p class="footer-copy">© 2026 Lake Stevens AFH </p>
     </div>
   </div>
 </footer>
@@ -384,8 +385,9 @@ const drawer = document.getElementById('nav-drawer');
 const drawerOverlay = document.getElementById('nav-drawer-overlay');
 const drawerClose = document.getElementById('nav-drawer-close');
 const hamburger = document.querySelector('.nav-hamburger');
-function openDrawer() { drawer.classList.add('open'); drawer.removeAttribute('aria-hidden'); hamburger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; drawerClose.focus(); }
-function closeDrawer() { drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+let _lastFocus;
+function openDrawer() { _lastFocus = document.activeElement; drawer.classList.add('open'); drawer.removeAttribute('aria-hidden'); hamburger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; drawerClose.focus(); }
+function closeDrawer() { drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; _lastFocus?.focus(); }
 hamburger.addEventListener('click', openDrawer);
 drawerClose.addEventListener('click', closeDrawer);
 drawerOverlay.addEventListener('click', closeDrawer);
