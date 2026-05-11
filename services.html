@@ -72,7 +72,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 @media (min-width: 768px) { .nav-links { display: flex; } }
 .nav-links a { font-size: 11px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(237,232,224,0.75); transition: color 0.15s; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--gold); }
-.nav-cta { display: none; }
+.nav-cta { display: none; padding: 0.6rem 1.5rem; }
 @media (min-width: 768px) { .nav-cta { display: inline-block; } }
 .nav-hamburger { display: flex; flex-direction: column; gap: 5px; padding: 4px; min-width: 44px; min-height: 44px; justify-content: center; align-items: center; }
 @media (min-width: 768px) { .nav-hamburger { display: none; } }
@@ -110,7 +110,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 .services-overview { padding: 5rem 0 2rem; }
 .services-overview-header { max-width: 640px; margin-bottom: 4rem; }
 .services-overview-header h2 { font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: clamp(30px, 4vw, 46px); line-height: 1.1; color: var(--navy); margin-top: 1rem; margin-bottom: 0.85rem; }
-.services-overview-header p { font-size: 15px; color: var(--slate); line-height: 1.75; }
+.services-overview-header p { font-size: 15px; color: var(--slate); line-height: 1.65; }
 
 .service-section { padding: 5rem 0; border-top: 1px solid rgba(27,42,74,0.08); scroll-margin-top: 90px; }
 .service-section:nth-child(even) { background: var(--hearthstone); }
@@ -179,7 +179,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
       <li><a href="services.html" aria-current="page">Services</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
-    <a href="contact.html" class="btn-primary nav-cta" style="padding:0.6rem 1.5rem;">Schedule a Visit</a>
+    <a href="contact.html" class="btn-primary nav-cta">Schedule a Visit</a>
     <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer"><span></span><span></span><span></span></button>
   </div>
 </nav>
