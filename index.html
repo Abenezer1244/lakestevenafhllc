@@ -1566,12 +1566,6 @@ async function initPretext() {
 
 initPretext().catch(() => {});
 
-/* ── Nav scroll state ── */
-const nav = document.getElementById('site-nav');
-const _hero = document.querySelector('.hero');
-function updateNav() { const b = _hero ? _hero.getBoundingClientRect().bottom : 0; nav.classList.toggle('scrolled', b <= 72); }
-window.addEventListener('scroll', updateNav, { passive: true });
-updateNav();
 
 /* ── Hero image crossfade ── */
 const img1 = document.getElementById('hero-img-1');
@@ -1666,6 +1660,16 @@ if (contactForm) {
     }
   });
 }
+</script>
+
+<script>
+(function () {
+  var nav = document.getElementById('site-nav');
+  var hero = document.querySelector('.hero');
+  function updateNav() { var b = hero ? hero.getBoundingClientRect().bottom : 0; nav.classList.toggle('scrolled', b <= 72); }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+})();
 </script>
 
 </body>
