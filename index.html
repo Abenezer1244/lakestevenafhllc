@@ -163,13 +163,14 @@ body {
   right: 0;
   z-index: 100;
   padding: 1.5rem 0;
-  background: rgba(15, 24, 37, 0.82);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(197, 169, 106, 0.18);
-  transition: background 0.3s, padding 0.3s;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.2s ease-in, border-color 0.2s ease-in, padding 0.3s;
 }
 .site-nav.scrolled {
   background: rgba(15, 24, 37, 0.97);
+  backdrop-filter: blur(12px);
+  border-bottom-color: rgba(197, 169, 106, 0.18);
   padding: 1rem 0;
 }
 .nav-inner {
@@ -1567,8 +1568,12 @@ initPretext().catch(() => {});
 
 /* ── Nav scroll state ── */
 const nav = document.getElementById('site-nav');
+const heroSection = document.querySelector('.hero');
 function updateNav() {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
+  const pastHero = heroSection
+    ? heroSection.getBoundingClientRect().bottom <= 72
+    : window.scrollY > 60;
+  nav.classList.toggle('scrolled', pastHero);
 }
 window.addEventListener('scroll', updateNav, { passive: true });
 updateNav();
