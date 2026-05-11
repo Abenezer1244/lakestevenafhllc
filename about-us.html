@@ -112,10 +112,15 @@ body {
   top: 0; left: 0; right: 0;
   z-index: 100;
   padding: 1.5rem 0;
-  transition: background 0.3s, padding 0.3s;
-  background: rgba(15,24,37,0.96);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.2s ease-in, border-color 0.2s ease-in, padding 0.3s;
+}
+.site-nav.scrolled {
+  background: rgba(15,24,37,0.97);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(197,169,106,0.18);
+  border-bottom-color: rgba(197,169,106,0.18);
+  padding: 1rem 0;
 }
 .nav-inner {
   display: flex;
@@ -736,8 +741,9 @@ body {
 <script>
 /* Nav scroll state — on inner pages nav starts solid */
 const nav = document.getElementById('site-nav');
-function updateNav() { nav.classList.toggle('scrolled', window.scrollY > 60); }
+function updateNav() { nav.classList.toggle('scrolled', window.scrollY >= window.innerHeight * 0.85); }
 window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
 
 /* Mobile drawer */
 const drawer = document.getElementById('nav-drawer');

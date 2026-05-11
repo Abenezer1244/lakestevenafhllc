@@ -1568,12 +1568,8 @@ initPretext().catch(() => {});
 
 /* ── Nav scroll state ── */
 const nav = document.getElementById('site-nav');
-const heroSection = document.querySelector('.hero');
 function updateNav() {
-  const pastHero = heroSection
-    ? heroSection.getBoundingClientRect().bottom <= 72
-    : window.scrollY > 60;
-  nav.classList.toggle('scrolled', pastHero);
+  nav.classList.toggle('scrolled', window.scrollY >= window.innerHeight * 0.85);
 }
 window.addEventListener('scroll', updateNav, { passive: true });
 updateNav();
