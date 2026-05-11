@@ -169,8 +169,16 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 .footer-signature { font-family: var(--font-display); font-style: italic; font-size: 16px; font-weight: 300; color: rgba(237,232,224,0.42); }
 .footer-copy { font-size: 11px; color: rgba(237,232,224,0.25); letter-spacing: 0.04em; }
 
+@keyframes fade-up-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 @media (prefers-reduced-motion: no-preference) {
-  .js-ready [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease-out, transform 0.55s ease-out; }
+  .page-hero-content > * { animation: fade-up-in 300ms ease-out both; }
+  .page-hero-content > *:nth-child(1) { animation-delay: 80ms; }
+  .page-hero-content > *:nth-child(2) { animation-delay: 200ms; }
+  .page-hero-content > *:nth-child(3) { animation-delay: 300ms; }
+  .js-ready [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.22s ease-out, transform 0.22s ease-out; }
   .js-ready [data-reveal].revealed { opacity: 1; transform: translateY(0); }
 }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
@@ -450,10 +458,14 @@ document.querySelectorAll('.faq-question').forEach(btn => {
 });
 
 document.documentElement.classList.add('js-ready');
+var _revEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+var _pm = new Map();
+_revEls.forEach(function(el) { var p = el.parentElement; if (!_pm.has(p)) _pm.set(p, []); _pm.get(p).push(el); });
+_pm.forEach(function(ch) { if (ch.length > 1) ch.forEach(function(el, i) { el.style.transitionDelay = (i * 70) + 'ms'; }); });
 const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); } });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('[data-reveal]').forEach(el => {
+_revEls.forEach(function(el) {
   const r = el.getBoundingClientRect();
   if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add('revealed'); } else { revealObs.observe(el); }
 });

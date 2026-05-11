@@ -740,11 +740,23 @@ body {
 .footer-copy { font-size: 11px; color: rgba(237,232,224,0.25); letter-spacing: 0.04em; }
 
 /* ── SCROLL ENTRANCE ANIMATIONS ── */
+@keyframes fade-up-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 @media (prefers-reduced-motion: no-preference) {
+  .hero-content > * {
+    animation: fade-up-in 300ms ease-out both;
+  }
+  .hero-content > *:nth-child(1) { animation-delay: 80ms; }
+  .hero-content > *:nth-child(2) { animation-delay: 200ms; }
+  .hero-content > *:nth-child(3) { animation-delay: 300ms; }
+  .hero-content > *:nth-child(4) { animation-delay: 400ms; }
+  .hero-content > *:nth-child(5) { animation-delay: 500ms; }
   .js-ready [data-reveal] {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+    transition: opacity 0.22s ease-out, transform 0.22s ease-out;
   }
   .js-ready [data-reveal].revealed {
     opacity: 1;
@@ -1583,20 +1595,6 @@ setInterval(() => {
   }
 }, 5000);
 
-/* ── Scroll reveal ── */
-document.documentElement.classList.add('js-ready');
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); } });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll('[data-reveal]').forEach(el => {
-  const r = el.getBoundingClientRect();
-  if (r.top < window.innerHeight && r.bottom > 0) {
-    el.classList.add('revealed');
-  } else {
-    revealObs.observe(el);
-  }
-});
 
 /* ── Mobile nav drawer ── */
 const drawer = document.getElementById('nav-drawer');
@@ -1664,11 +1662,40 @@ if (contactForm) {
 
 <script>
 (function () {
+  /* ── Nav scroll state ── */
   var nav = document.getElementById('site-nav');
   var hero = document.querySelector('.hero');
   function updateNav() { var b = hero ? hero.getBoundingClientRect().bottom : 0; nav.classList.toggle('scrolled', b <= 72); }
   window.addEventListener('scroll', updateNav, { passive: true });
   updateNav();
+
+  /* ── Scroll reveal + auto-stagger ── */
+  document.documentElement.classList.add('js-ready');
+  var els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+
+  var parentMap = new Map();
+  els.forEach(function (el) {
+    var p = el.parentElement;
+    if (!parentMap.has(p)) parentMap.set(p, []);
+    parentMap.get(p).push(el);
+  });
+  parentMap.forEach(function (children) {
+    if (children.length > 1) {
+      children.forEach(function (el, i) { el.style.transitionDelay = (i * 70) + 'ms'; });
+    }
+  });
+
+  var revealObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  els.forEach(function (el) {
+    var r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add('revealed'); }
+    else { revealObs.observe(el); }
+  });
 })();
 </script>
 
