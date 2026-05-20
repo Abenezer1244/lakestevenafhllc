@@ -258,7 +258,8 @@ body {
   inset: 0;
   overflow: hidden;
 }
-.hero-bg img {
+.hero-bg img,
+.hero-bg video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1180,14 +1181,13 @@ body {
 <!-- ════ HERO ════ -->
 <section class="hero" aria-label="Welcome">
   <div class="hero-bg" aria-hidden="true">
-    <img id="hero-img-1"
-      src="/images/hero.webp"
-      width="1280" height="853"
-      alt="Lake Stevens AFH — the actual home at 11921 24th PL NE" fetchpriority="high">
-    <img id="hero-img-2"
-      src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=80"
-      width="1800" height="1200"
-      alt="" class="hidden">
+    <video id="hero-video"
+      src="/videos/hero.mp4"
+      poster="/images/hero.webp"
+      width="1920" height="1080"
+      autoplay muted loop playsinline preload="metadata"
+      aria-label="Lake Stevens AFH — the actual home at 11921 24th PL NE">
+    </video>
     <div class="hero-overlay"></div>
   </div>
 
@@ -1611,21 +1611,7 @@ async function initPretext() {
 initPretext().catch(() => {});
 
 
-/* ── Hero image crossfade ── */
-const img1 = document.getElementById('hero-img-1');
-const img2 = document.getElementById('hero-img-2');
-let current = 1;
-setInterval(() => {
-  if (current === 1) {
-    img1.classList.add('hidden');
-    img2.classList.remove('hidden');
-    current = 2;
-  } else {
-    img2.classList.add('hidden');
-    img1.classList.remove('hidden');
-    current = 1;
-  }
-}, 5000);
+/* Hero video autoplays and loops; no JS crossfade needed. */
 
 
 </script>
