@@ -325,6 +325,38 @@ body {
   margin-bottom: 2.75rem;
 }
 
+.hero-features {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.4rem;
+  list-style: none;
+  margin: 0 0 2.5rem;
+  padding: 0;
+  max-width: 560px;
+}
+.hero-features li {
+  font-family: var(--font-sc);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: rgba(197, 169, 106, 0.92);
+  position: relative;
+  padding-right: 1.4rem;
+}
+.hero-features li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 1px;
+  height: 11px;
+  background: rgba(197, 169, 106, 0.4);
+  transform: translateY(-50%);
+}
+.hero-features li:last-child { padding-right: 0; }
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -765,6 +797,7 @@ body {
   .hero-content > *:nth-child(3) { animation-delay: 300ms; }
   .hero-content > *:nth-child(4) { animation-delay: 400ms; }
   .hero-content > *:nth-child(5) { animation-delay: 500ms; }
+  .hero-content > *:nth-child(6) { animation-delay: 580ms; }
   .js-ready [data-reveal] {
     opacity: 0;
     transform: translateY(20px);
@@ -1171,6 +1204,12 @@ body {
       her recipe last February. That's what four residents means — we actually know."
     </blockquote>
 
+    <ul class="hero-features" aria-label="Highlights">
+      <li>Near Lake Stevens</li>
+      <li>Mountain views</li>
+      <li>Rooms available</li>
+    </ul>
+
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Schedule a Visit</a>
       <a href="#why-us" class="btn-ghost">Our Story</a>
@@ -1279,8 +1318,8 @@ body {
     <div class="services-grid">
       <article class="service-card" data-reveal>
         <img
-          src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=600&q=80"
-          width="600" height="800"
+          src="/images/dementia-care.webp"
+          width="940" height="788"
           alt="Dementia Care — specialized memory support in a calm environment"
           loading="lazy">
         <div class="service-card-overlay">
@@ -1290,8 +1329,8 @@ body {
       </article>
       <article class="service-card" data-reveal>
         <img
-          src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80"
-          width="600" height="800"
+          src="/images/services-hero.webp"
+          width="1280" height="720"
           alt="Daily Assistance — respectful help with everyday tasks"
           loading="lazy">
         <div class="service-card-overlay">
