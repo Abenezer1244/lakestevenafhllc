@@ -271,7 +271,13 @@ body {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: transparent;
+  background: linear-gradient(
+    100deg,
+    rgba(10,16,30,0.72) 0%,
+    rgba(10,16,30,0.55) 30%,
+    rgba(10,16,30,0.18) 70%,
+    rgba(10,16,30,0) 100%
+  );
 }
 
 .hero-content {
@@ -284,7 +290,7 @@ body {
 }
 @media (min-width: 768px) { .hero-content { padding: 9rem 3rem 5rem; } }
 
-.hero-eyebrow { margin-bottom: 1.75rem; }
+.hero-eyebrow { margin-bottom: 1.75rem; text-shadow: 0 1px 8px rgba(10,16,30,0.45); }
 
 .hero-h1 {
   font-family: var(--font-display);
@@ -296,12 +302,14 @@ body {
   letter-spacing: -0.01em;
   max-width: 720px;
   margin-bottom: 2rem;
+  text-shadow: 0 2px 24px rgba(10,16,30,0.55), 0 1px 4px rgba(10,16,30,0.4);
 }
 
 .hero-what {
   font-size: 15px;
   font-weight: 300;
-  color: rgba(237,232,224,0.62);
+  color: rgba(237,232,224,0.78);
+  text-shadow: 0 1px 10px rgba(10,16,30,0.5);
   max-width: 520px;
   line-height: 1.65;
   margin-bottom: 1.75rem;
@@ -314,7 +322,8 @@ body {
   font-weight: 300;
   font-size: clamp(17px, 2.2vw, 21px);
   line-height: 1.65;
-  color: rgba(237,232,224,0.82);
+  color: rgba(237,232,224,0.92);
+  text-shadow: 0 1px 10px rgba(10,16,30,0.5);
   max-width: 500px;
   border-left: 2px solid var(--gold);
   padding-left: 1.5rem;
@@ -337,7 +346,8 @@ body {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 400;
-  color: rgba(197, 169, 106, 0.92);
+  color: rgba(197, 169, 106, 0.96);
+  text-shadow: 0 1px 6px rgba(10,16,30,0.5);
   position: relative;
   padding-right: 1.4rem;
 }
