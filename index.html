@@ -271,13 +271,20 @@ body {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    100deg,
-    rgba(10,16,30,0.72) 0%,
-    rgba(10,16,30,0.55) 30%,
-    rgba(10,16,30,0.18) 70%,
-    rgba(10,16,30,0) 100%
-  );
+  background:
+    linear-gradient(
+      100deg,
+      rgba(10,16,30,0.82) 0%,
+      rgba(10,16,30,0.68) 35%,
+      rgba(10,16,30,0.28) 75%,
+      rgba(10,16,30,0.05) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(10,16,30,0.25) 0%,
+      rgba(10,16,30,0) 35%,
+      rgba(10,16,30,0) 100%
+    );
 }
 
 .hero-content {
@@ -290,26 +297,33 @@ body {
 }
 @media (min-width: 768px) { .hero-content { padding: 9rem 3rem 5rem; } }
 
-.hero-eyebrow { margin-bottom: 1.75rem; text-shadow: 0 1px 8px rgba(10,16,30,0.45); }
+.hero-eyebrow {
+  margin-bottom: 1.75rem;
+  color: rgba(197, 169, 106, 1);
+  text-shadow: 0 1px 10px rgba(10,16,30,0.6), 0 0 2px rgba(10,16,30,0.5);
+}
 
 .hero-h1 {
   font-family: var(--font-display);
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(42px, 7vw, 76px);
   line-height: 1.04;
-  color: #EDE8E0;
+  color: #F4EFE5;
   letter-spacing: -0.01em;
   max-width: 720px;
   margin-bottom: 2rem;
-  text-shadow: 0 2px 24px rgba(10,16,30,0.55), 0 1px 4px rgba(10,16,30,0.4);
+  text-shadow:
+    0 2px 28px rgba(10,16,30,0.72),
+    0 1px 6px rgba(10,16,30,0.6),
+    0 0 1px rgba(10,16,30,0.5);
 }
 
 .hero-what {
-  font-size: 15px;
-  font-weight: 300;
-  color: rgba(237,232,224,0.78);
-  text-shadow: 0 1px 10px rgba(10,16,30,0.5);
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(237,232,224,0.94);
+  text-shadow: 0 1px 12px rgba(10,16,30,0.65), 0 0 1px rgba(10,16,30,0.4);
   max-width: 520px;
   line-height: 1.65;
   margin-bottom: 1.75rem;
@@ -322,8 +336,8 @@ body {
   font-weight: 300;
   font-size: clamp(17px, 2.2vw, 21px);
   line-height: 1.65;
-  color: rgba(237,232,224,0.92);
-  text-shadow: 0 1px 10px rgba(10,16,30,0.5);
+  color: rgba(244, 239, 229, 0.98);
+  text-shadow: 0 1px 12px rgba(10,16,30,0.65), 0 0 1px rgba(10,16,30,0.4);
   max-width: 500px;
   border-left: 2px solid var(--gold);
   padding-left: 1.5rem;
@@ -346,8 +360,8 @@ body {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 400;
-  color: rgba(197, 169, 106, 0.96);
-  text-shadow: 0 1px 6px rgba(10,16,30,0.5);
+  color: rgba(212, 184, 121, 1);
+  text-shadow: 0 1px 8px rgba(10,16,30,0.65), 0 0 1px rgba(10,16,30,0.4);
   position: relative;
   padding-right: 1.4rem;
 }
@@ -1217,7 +1231,7 @@ body {
 
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Schedule a Visit</a>
-      <a href="#why-us" class="btn-ghost">Our Story</a>
+      <a href="/gallery" class="btn-ghost">Gallery</a>
     </div>
   </div>
 </section>
@@ -1283,9 +1297,9 @@ body {
     <div class="story-grid">
       <div class="story-img">
         <img
-          src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=900&q=80"
-          width="900" height="1125"
-          alt="Caregiver attending to a resident with warmth and care"
+          src="/images/gallery/g10.webp"
+          width="1400" height="787"
+          alt="The Lake Stevens AFH home with red Japanese maple, blooming rhododendron, and attached garage"
           loading="lazy">
       </div>
       <div class="story-text" data-reveal>
