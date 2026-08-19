@@ -595,6 +595,36 @@ body {
 @media (min-width: 768px) { .mobile-call-bar { display: none; } }
 @media (max-width: 767px) { body { padding-bottom: 76px; } }
 
+/* -- Team: editorial two-column layout -- */
+.team-layout { display: grid; grid-template-columns: 1fr; gap: 3.5rem; align-items: start; }
+@media (min-width: 900px) { .team-layout { grid-template-columns: minmax(280px, 400px) 1fr; gap: 5rem; } }
+.team-portrait {
+  margin: 0 auto; max-width: 360px; width: 100%;
+  padding: 8px 8px 10px;
+  background: linear-gradient(165deg, #F4EFE5 0%, #E7DFCC 100%);
+  box-shadow: 0 24px 48px rgba(10,16,30,0.18), 0 4px 12px rgba(10,16,30,0.10);
+  transform: rotate(-1.4deg);
+  transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.3, 1);
+}
+.team-portrait:hover { transform: rotate(0deg); }
+@media (min-width: 900px) { .team-portrait { margin: 0.5rem 0 0; } }
+.team-bio-name {
+  font-family: var(--font-display); font-style: italic; font-weight: 300;
+  font-size: clamp(26px, 3vw, 36px); line-height: 1.1; color: var(--navy);
+  margin-bottom: 1.25rem;
+}
+.team-bio-body { font-size: 15px; line-height: 1.75; color: var(--slate); max-width: 58ch; margin-bottom: 1rem; }
+.team-standards { margin-top: 2rem; background: var(--hearthstone); border-top: 2px solid var(--gold); padding: 1.75rem 2rem; max-width: 620px; }
+.team-standards-title { font-family: var(--font-sc); font-size: 11px; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; }
+.team-standards > p { font-size: 14px; color: var(--slate); line-height: 1.65; margin-bottom: 1.1rem; }
+.team-standards ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0.6rem 1.5rem; }
+@media (min-width: 640px) { .team-standards ul { grid-template-columns: 1fr 1fr; } }
+.team-standards li { font-size: 14px; color: var(--navy); line-height: 1.5; display: flex; gap: 0.6rem; align-items: baseline; }
+.team-standards li::before { content: '·'; color: var(--gold); font-family: var(--font-display); font-size: 24px; line-height: 1; flex-shrink: 0; }
+.team-tournote { margin-top: 1.75rem; font-size: 14px; color: var(--slate); line-height: 1.65; max-width: 58ch; }
+.team-tournote a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+.team-tournote a:hover { color: var(--gold); }
+
 /* -- Tap targets: comfortable link hit areas -- */
 .footer-links a, .footer-address a, .nav-drawer-contact a { display: inline-block; padding: 0.55rem 0; }
 .footer-links li { margin-bottom: 0; }
@@ -750,18 +780,36 @@ body {
       <h2 class="team-h2">A small, dedicated team</h2>
       <p class="team-sub">Our caregivers are not rotated in from a staffing pool. They are chosen carefully, trained thoroughly, and stay.</p>
     </div>
-    <div class="team-grid" style="grid-template-columns:1fr;max-width:360px;" data-reveal>
-      <div class="team-card">
-        <div style="aspect-ratio:3/4;background:var(--navy);overflow:hidden;">
-          <img src="/images/team-zinash.webp" width="472" height="760" alt="Zinash Shibeshe, Owner and Primary Caregiver" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
-        </div>
-        <div class="team-card-info">
-          <p class="team-card-name">Zinash Shibeshe</p>
-          <p class="team-card-role">Owner &amp; Primary Caregiver</p>
+    <div class="team-layout">
+      <div class="team-portrait" data-reveal>
+        <div class="team-card">
+          <div style="aspect-ratio:3/4;background:var(--navy);overflow:hidden;">
+            <img src="/images/team-zinash.webp" width="472" height="760" alt="Zinash Shibeshe, Owner and Primary Caregiver" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+          </div>
+          <div class="team-card-info">
+            <p class="team-card-name">Zinash Shibeshe</p>
+            <p class="team-card-role">Owner &amp; Primary Caregiver</p>
+          </div>
         </div>
       </div>
+      <div class="team-bio" data-reveal>
+        <p class="sc-label" style="display:block;margin-bottom:1rem;">Owner &amp; Primary Caregiver</p>
+        <h3 class="team-bio-name">Zinash Shibeshe</h3>
+        <p class="team-bio-body">Lake Stevens AFH is owner-operated. Zinash is not a distant administrator: she is the home's primary caregiver, and the person responsible for your loved one's care plan is the same person who greets you at the door on your tour.</p>
+        <p class="team-bio-body">The caregivers who work alongside her are chosen carefully and stay. With a maximum of four residents, there is no rotating staffing pool. Your loved one is cared for by familiar faces who know their name, their routine, and their story.</p>
+        <div class="team-standards">
+          <p class="team-standards-title">Held to Washington's standards</p>
+          <p>As a DSHS-licensed adult family home (License No. 759247), our caregiving team meets Washington State's requirements for residential care, including:</p>
+          <ul role="list">
+            <li>State background checks for every caregiver</li>
+            <li>DSHS-required caregiver training and continuing education</li>
+            <li>CPR and first aid certification</li>
+            <li>Specialty training for dementia and memory care</li>
+          </ul>
+        </div>
+        <p class="team-tournote">Our full care team is introduced personally during your tour. We believe the best way to know our caregivers is to meet them in the home where they work. <a href="/contact">Schedule a visit</a> and we will make the introductions.</p>
+      </div>
     </div>
-    <p style="font-size:14px;color:var(--slate);margin-top:2rem;max-width:520px;line-height:1.65;" data-reveal>Our full care team is introduced personally during your tour. We believe the best way to know our caregivers is to meet them in the home where they work.</p>
   </div>
 </section>
 
