@@ -4,6 +4,9 @@ DESIGN.md
 progress.md
 *.zip
 *.txt
+!robots.txt
+!llms.txt
+!1df98db6d3e355644dc912ef767837e2.txt
 Thumbs.db
 .DS_Store
 

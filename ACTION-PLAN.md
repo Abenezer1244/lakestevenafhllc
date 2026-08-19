@@ -34,7 +34,7 @@
 | H11 | **Expand `areaServed`** to include Snohomish County + WA State nodes alongside City | All 5 pages | 15 min | County-level local signals |
 | H12 | **Fix services.html thin content** — currently 490 words (39% below minimum); expand dementia care and medication management sections with differentiating detail, geo-modifiers in H2s | `services.html` | 2 hrs | Keyword ranking depth |
 | H13 | **Add location modifier to homepage H1** — e.g., "Exceptional senior care in Lake Stevens, WA" | `index.html` | 5 min | Local #1 ranking factor |
-| H14 | **Submit site to WA DSHS AFH Provider Directory** — license 41-4806355 should be live and findable | DSHS portal | 30 min | Authority citation |
+| H14 | **Submit site to WA DSHS AFH Provider Directory** — license 759247 should be live and findable | DSHS portal | 30 min | Authority citation |
 | H15 | **Create `/llms.txt`** file at site root (draft ready in FULL-AUDIT-REPORT.md) | New file | 15 min | AI search citability |
 
 ---
