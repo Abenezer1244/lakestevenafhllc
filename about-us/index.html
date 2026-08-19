@@ -598,8 +598,10 @@ body {
 /* -- Team: editorial two-column layout -- */
 .team-layout { display: grid; grid-template-columns: 1fr; gap: 3.5rem; align-items: start; }
 @media (min-width: 900px) { .team-layout { grid-template-columns: minmax(280px, 400px) 1fr; gap: 5rem; } }
+.team-left { max-width: 360px; width: 100%; margin: 0 auto; }
+@media (min-width: 900px) { .team-left { margin: 0.5rem 0 0; } }
+.team-left .team-tournote { margin-top: 2.25rem; }
 .team-portrait {
-  margin: 0 auto; max-width: 360px; width: 100%;
   padding: 8px 8px 10px;
   background: linear-gradient(165deg, #F4EFE5 0%, #E7DFCC 100%);
   box-shadow: 0 24px 48px rgba(10,16,30,0.18), 0 4px 12px rgba(10,16,30,0.10);
@@ -607,7 +609,6 @@ body {
   transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.3, 1);
 }
 .team-portrait:hover { transform: rotate(0deg); }
-@media (min-width: 900px) { .team-portrait { margin: 0.5rem 0 0; } }
 .team-bio-name {
   font-family: var(--font-display); font-style: italic; font-weight: 300;
   font-size: clamp(26px, 3vw, 36px); line-height: 1.1; color: var(--navy);
@@ -780,16 +781,19 @@ body {
       <h2 class="team-h2">A small, dedicated team</h2>
     </div>
     <div class="team-layout">
-      <div class="team-portrait" data-reveal>
-        <div class="team-card">
-          <div style="aspect-ratio:3/4;background:var(--navy);overflow:hidden;">
-            <img src="/images/team-zinash.webp" width="472" height="760" alt="Zinash Shibeshe, Owner and Primary Caregiver" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
-          </div>
-          <div class="team-card-info">
-            <p class="team-card-name">Zinash Shibeshe</p>
-            <p class="team-card-role">Owner &amp; Primary Caregiver</p>
+      <div class="team-left" data-reveal>
+        <div class="team-portrait">
+          <div class="team-card">
+            <div style="aspect-ratio:3/4;background:var(--navy);overflow:hidden;">
+              <img src="/images/team-zinash.webp" width="472" height="760" alt="Zinash Shibeshe, Owner and Primary Caregiver" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+            </div>
+            <div class="team-card-info">
+              <p class="team-card-name">Zinash Shibeshe</p>
+              <p class="team-card-role">Owner &amp; Primary Caregiver</p>
+            </div>
           </div>
         </div>
+        <p class="team-tournote">Our full care team is introduced personally during your tour. We believe the best way to know our caregivers is to meet them in the home where they work. <a href="/contact">Schedule a visit</a> and we will make the introductions.</p>
       </div>
       <div class="team-bio" data-reveal>
         <p class="sc-label" style="display:block;margin-bottom:1rem;">Owner &amp; Primary Caregiver</p>
@@ -806,7 +810,6 @@ body {
             <li>Specialty training for dementia and memory care</li>
           </ul>
         </div>
-        <p class="team-tournote">Our full care team is introduced personally during your tour. We believe the best way to know our caregivers is to meet them in the home where they work. <a href="/contact">Schedule a visit</a> and we will make the introductions.</p>
       </div>
     </div>
   </div>
