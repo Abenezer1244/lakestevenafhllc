@@ -128,7 +128,7 @@
 
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { cursor: pointer; border: none; background: none; font: inherit; }
@@ -800,7 +800,7 @@ body {
 
 /* ── SCROLL ENTRANCE ANIMATIONS ── */
 @keyframes fade-up-in {
-  from { opacity: 0; transform: translateY(18px); }
+  from { opacity: 0.35; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -813,15 +813,6 @@ body {
   .hero-content > *:nth-child(4) { animation-delay: 400ms; }
   .hero-content > *:nth-child(5) { animation-delay: 500ms; }
   .hero-content > *:nth-child(6) { animation-delay: 580ms; }
-  .js-ready [data-reveal] {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.22s ease-out, transform 0.22s ease-out;
-  }
-  .js-ready [data-reveal].revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* ── FOCUS VISIBLE ── */
@@ -1190,19 +1181,19 @@ body {
 <section class="stats" aria-label="At a glance">
   <div class="container">
     <div class="stats-grid">
-      <div data-reveal>
+      <div>
         <div class="stat-num">24/7</div>
         <div class="stat-label">Awake &amp; active care</div>
       </div>
-      <div data-reveal>
+      <div>
         <div class="stat-num">4</div>
         <div class="stat-label">Residents maximum</div>
       </div>
-      <div data-reveal>
+      <div>
         <div class="stat-num">2025</div>
         <div class="stat-label">Established</div>
       </div>
-      <div data-reveal>
+      <div>
         <div class="stat-num">1:4</div>
         <div class="stat-label">Caregiver ratio, never worse</div>
       </div>
@@ -1213,7 +1204,7 @@ body {
 <!-- ════ WHO IS THIS FOR ════ -->
 <section class="who" aria-label="Who we serve">
   <div class="container">
-    <div class="who-header" data-reveal>
+    <div class="who-header">
       <h2>Is Lake Stevens AFH the right fit for your family?</h2>
       <p>We serve seniors and families who want genuine, personalized care in a real home, not a large institution with rotating staff and numbered beds.</p>
     </div>
@@ -1231,7 +1222,7 @@ body {
         <p>You want to know your loved one is safe and genuinely happy, and you want to be able to call any time and speak with someone who actually knows them by name.</p>
       </li>
     </ul>
-    <div class="who-note" data-reveal>
+    <div class="who-note">
       <p><strong>Not sure if we're the right fit?</strong> We're happy to talk through your loved one's specific needs. No pressure, no sales pitch. Call us at <a href="tel:+12063833109">(206) 383-3109</a> or <a href="/contact">send us a message</a>.</p>
     </div>
   </div>
@@ -1248,7 +1239,7 @@ body {
           alt="The Lake Stevens AFH home with red Japanese maple, blooming rhododendron, and attached garage"
           loading="lazy">
       </div>
-      <div class="story-text" data-reveal>
+      <div class="story-text">
         <h2 class="story-h2" data-pretext="story">
           A haven of care,<br>dignity, and comfort
         </h2>
@@ -1274,12 +1265,12 @@ body {
 <!-- ════ SERVICES ════ -->
 <section class="services" id="services" aria-label="Our care services">
   <div class="container">
-    <div class="services-header" data-reveal>
+    <div class="services-header">
       <h2 class="services-h2">Comprehensive care services</h2>
       <p class="services-sub">Designed to support health, happiness, and independence.</p>
     </div>
     <div class="services-grid">
-      <article class="service-card" data-reveal>
+      <article class="service-card">
         <img
           src="/images/dementia-care.webp"
           width="940" height="788"
@@ -1290,7 +1281,7 @@ body {
           <p>Specialized, gentle support for memory conditions in a calm, familiar setting.</p>
         </div>
       </article>
-      <article class="service-card" data-reveal>
+      <article class="service-card">
         <img
           src="/images/services-hero.webp"
           width="1280" height="720"
@@ -1301,7 +1292,7 @@ body {
           <p>Respectful help with bathing, dressing, grooming, and mobility.</p>
         </div>
       </article>
-      <article class="service-card" data-reveal>
+      <article class="service-card">
         <img
           src="/images/gallery/g06.webp"
           width="1400" height="787"
@@ -1312,7 +1303,7 @@ body {
           <p>Accurate, timely administration with careful tracking by trained staff.</p>
         </div>
       </article>
-      <article class="service-card" data-reveal>
+      <article class="service-card">
         <img
           src="/images/gallery/g23.webp"
           width="1400" height="787"
@@ -1330,11 +1321,11 @@ body {
 <!-- ════ TRUST & CREDENTIALS ════ -->
 <section class="trust" aria-label="Our credentials and licensing">
   <div class="container">
-    <div class="trust-header" data-reveal>
+    <div class="trust-header">
       <h2>Licensed, regulated,<br>and deeply committed</h2>
       <p class="trust-lede">A state-licensed Adult Family Home under Washington DSHS oversight and inspection.</p>
     </div>
-    <div class="trust-license" data-reveal>
+    <div class="trust-license">
       <div class="trust-badge">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         <div class="trust-badge-text">
@@ -1357,7 +1348,7 @@ body {
 
 <!-- ==== SERVICE AREA ==== -->
 <section class="who" aria-label="Areas we serve" style="padding:3.5rem 0;">
-  <div class="container" data-reveal>
+  <div class="container">
     <h2 style="font-family:var(--font-display);font-style:italic;font-weight:300;font-size:clamp(24px,3vw,34px);color:var(--navy);line-height:1.2;margin:0.75rem 0 1rem;">Serving families across Snohomish County</h2>
     <p style="font-size:16px;color:var(--slate);max-width:760px;line-height:1.75;">Lake Stevens AFH welcomes residents from Lake Stevens and the surrounding communities of Everett, Marysville, Snohomish, Machias, Monroe, Arlington, and Bothell. Our home sits in a quiet residential neighborhood in Lake Stevens, WA, close enough for family across Snohomish County to visit often, which we believe is one of the most important parts of good care.</p>
   </div>
@@ -1366,11 +1357,11 @@ body {
 <!-- ==== REVIEWS ==== -->
 <section class="testimonials" id="testimonials" aria-label="Family reviews">
   <div class="container">
-    <div class="testimonials-header" data-reveal>
+    <div class="testimonials-header">
       <h2 class="testimonials-h2">Be among the first<br>to share your experience</h2>
       <p class="testimonials-sub" style="margin-top:0.75rem;max-width:500px;margin-left:auto;margin-right:auto;">We are a newer home and proud of the care we provide. If your family has experienced Lake Stevens AFH, your honest review helps other families find the right home for their loved one.</p>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;padding:0 0 1rem;" data-reveal>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;padding:0 0 1rem;">
       <!-- TODO: after claiming the Google Business Profile, replace this Maps search URL
            with the real review short-link from the GBP dashboard
            (https://search.google.com/local/writereview?placeid=REAL_PLACE_ID) -->
@@ -1392,27 +1383,27 @@ body {
 <!-- ════ HOW TO GET STARTED ════ -->
 <section class="steps" aria-label="How to get started">
   <div class="container">
-    <div class="steps-header" data-reveal>
+    <div class="steps-header">
       <h2>Ready to explore?<br>Here's how simple it is.</h2>
     </div>
     <div class="steps-grid">
-      <div class="step-card" data-reveal>
+      <div class="step-card">
         <div class="step-number">01</div>
         <h3>Reach out to us</h3>
         <p>Call <a href="tel:+12063833109">(206) 383-3109</a> or fill out the form below. We respond within one business day. For urgent questions, we answer any time.</p>
       </div>
-      <div class="step-card" data-reveal>
+      <div class="step-card">
         <div class="step-number">02</div>
         <h3>Tour our home</h3>
         <p>Schedule a private, no-pressure visit. See the rooms, meet the caregivers, and ask every question you have. Most families say seeing the home changes everything.</p>
       </div>
-      <div class="step-card" data-reveal>
+      <div class="step-card">
         <div class="step-number">03</div>
         <h3>Welcome your loved one home</h3>
         <p>We walk you through every step, from paperwork to move-in day. Your loved one will feel welcomed and known from the very first moment they arrive.</p>
       </div>
     </div>
-    <div class="steps-cta" data-reveal>
+    <div class="steps-cta">
       <a href="#contact" class="btn-primary">Schedule a Free Tour</a>
       <p>No commitment. No pressure. Just a genuine conversation.</p>
     </div>
@@ -1423,7 +1414,7 @@ body {
 <section class="contact" id="contact" aria-label="Contact us">
   <div class="container">
     <div class="contact-grid">
-      <div class="contact-copy" data-reveal>
+      <div class="contact-copy">
         <h2 class="contact-h2">We'd love to<br>show you our home</h2>
         <p class="contact-desc">
           Finding the right care is a significant decision. Reach out to schedule a
@@ -1473,7 +1464,7 @@ body {
         </div>
       </div>
 
-      <form class="contact-form" id="contact-form" data-reveal aria-label="Schedule a visit" method="POST" action="https://api.web3forms.com/submit">
+      <form class="contact-form" id="contact-form" aria-label="Schedule a visit" method="POST" action="https://api.web3forms.com/submit">
         <input type="hidden" name="access_key" value="43432708-55bd-4f59-adad-fc8896bf5818">
         <input type="hidden" name="subject" value="New inquiry from the Lake Stevens AFH website">
         <input type="hidden" name="from_name" value="Lake Stevens AFH Website">
@@ -1556,33 +1547,6 @@ body {
   window.addEventListener('scroll', updateNav, { passive: true });
   updateNav();
 
-  /* ── Scroll reveal + auto-stagger ── */
-  document.documentElement.classList.add('js-ready');
-  var els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
-
-  var parentMap = new Map();
-  els.forEach(function (el) {
-    var p = el.parentElement;
-    if (!parentMap.has(p)) parentMap.set(p, []);
-    parentMap.get(p).push(el);
-  });
-  parentMap.forEach(function (children) {
-    if (children.length > 1) {
-      children.forEach(function (el, i) { el.style.transitionDelay = (i * 70) + 'ms'; });
-    }
-  });
-
-  var revealObs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  els.forEach(function (el) {
-    var r = el.getBoundingClientRect();
-    if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add('revealed'); }
-    else { revealObs.observe(el); }
-  });
 
   /* ── Mobile nav drawer ── */
   var drawer = document.getElementById('nav-drawer');

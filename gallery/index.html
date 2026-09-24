@@ -131,7 +131,7 @@
   --font-body: 'Manrope', sans-serif;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { cursor: pointer; border: none; background: none; font: inherit; }
@@ -258,7 +258,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 .footer-copy { font-size: 12px; color: rgba(237,232,224,0.7); letter-spacing: 0.04em; }
 
 @keyframes fade-up-in {
-  from { opacity: 0; transform: translateY(18px); }
+  from { opacity: 0.35; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -266,8 +266,6 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
   .page-hero-content > *:nth-child(1) { animation-delay: 80ms; }
   .page-hero-content > *:nth-child(2) { animation-delay: 200ms; }
   .page-hero-content > *:nth-child(3) { animation-delay: 300ms; }
-  .js-ready [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.22s ease-out, transform 0.22s ease-out; }
-  .js-ready [data-reveal].revealed { opacity: 1; transform: translateY(0); }
 }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
@@ -331,7 +329,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 
 <section class="gallery-intro">
   <div class="container">
-    <div class="gallery-intro-inner" data-reveal>
+    <div class="gallery-intro-inner">
       <h2>Beautiful spaces make a real difference</h2>
       <p>We believe environment is care. The warmth of a room, the quality of natural light, the comfort of a chair. These details shape how residents feel each day.</p>
     </div>
@@ -341,7 +339,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 <section class="gallery-section">
   <div class="container">
 
-    <div class="gallery-category" data-reveal>
+    <div class="gallery-category">
       <p class="gallery-category-label">Living Spaces</p>
       <div class="gallery-grid">
         <div class="gallery-item">
@@ -371,7 +369,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
       </div>
     </div>
 
-    <div class="gallery-category" data-reveal>
+    <div class="gallery-category">
       <p class="gallery-category-label">Kitchen &amp; Dining</p>
       <div class="gallery-grid">
         <div class="gallery-item">
@@ -393,7 +391,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
       </div>
     </div>
 
-    <div class="gallery-category" data-reveal>
+    <div class="gallery-category">
       <p class="gallery-category-label">Private Bedrooms</p>
       <div class="gallery-grid">
         <div class="gallery-item">
@@ -427,7 +425,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
       </div>
     </div>
 
-    <div class="gallery-category" data-reveal>
+    <div class="gallery-category">
       <p class="gallery-category-label">Accessible Bathrooms</p>
       <div class="gallery-grid">
         <div class="gallery-item">
@@ -445,7 +443,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
       </div>
     </div>
 
-    <div class="gallery-category" data-reveal>
+    <div class="gallery-category">
       <p class="gallery-category-label">Outdoor &amp; Garden</p>
       <div class="gallery-grid">
         <div class="gallery-item">
@@ -467,7 +465,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
       </div>
     </div>
 
-    <div class="gallery-category" data-reveal>
+    <div class="gallery-category">
       <p class="gallery-category-label">Building Exterior</p>
       <div class="gallery-grid">
         <div class="gallery-item">
@@ -578,18 +576,6 @@ document.addEventListener('keydown', function(e) {
   var first = f[0], last = f[f.length - 1];
   if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
   else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-});
-document.documentElement.classList.add('js-ready');
-var _revEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
-var _pm = new Map();
-_revEls.forEach(function(el) { var p = el.parentElement; if (!_pm.has(p)) _pm.set(p, []); _pm.get(p).push(el); });
-_pm.forEach(function(ch) { if (ch.length > 1) ch.forEach(function(el, i) { el.style.transitionDelay = (i * 70) + 'ms'; }); });
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); } });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-_revEls.forEach(function(el) {
-  const r = el.getBoundingClientRect();
-  if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add('revealed'); } else { revealObs.observe(el); }
 });
 
 /* -- Lightbox -- */

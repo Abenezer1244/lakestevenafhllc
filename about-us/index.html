@@ -145,7 +145,7 @@
   --font-body: 'Manrope', sans-serif;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { cursor: pointer; border: none; background: none; font: inherit; }
@@ -566,7 +566,7 @@ body {
 
 /* SCROLL REVEAL */
 @keyframes fade-up-in {
-  from { opacity: 0; transform: translateY(18px); }
+  from { opacity: 0.35; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -574,8 +574,6 @@ body {
   .page-hero-content > *:nth-child(1) { animation-delay: 80ms; }
   .page-hero-content > *:nth-child(2) { animation-delay: 200ms; }
   .page-hero-content > *:nth-child(3) { animation-delay: 300ms; }
-  .js-ready [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.22s ease-out, transform 0.22s ease-out; }
-  .js-ready [data-reveal].revealed { opacity: 1; transform: translateY(0); }
 }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
@@ -694,7 +692,7 @@ body {
           alt="Caregiver supporting a resident with patience and care in our Lake Stevens home"
           loading="lazy">
       </div>
-      <div class="about-story-text" data-reveal>
+      <div class="about-story-text">
         <h2 class="about-story-h2">Why we chose four residents, and never looked back</h2>
         <blockquote class="about-story-pull">
           &ldquo;We knew from the beginning that smallness was the point. Four residents means we
@@ -724,7 +722,7 @@ body {
 <!-- PHILOSOPHY -->
 <section class="philosophy">
   <div class="container">
-    <div class="philosophy-header" data-reveal>
+    <div class="philosophy-header">
       <h2 class="philosophy-h2">Our care philosophy</h2>
       <p class="philosophy-sub">Every decision we make flows from the same source: dignity first, always.</p>
     </div>
@@ -760,11 +758,11 @@ body {
 <!-- TEAM -->
 <section class="team">
   <div class="container">
-    <div class="team-header" data-reveal>
+    <div class="team-header">
       <h2 class="team-h2">A small, dedicated team</h2>
     </div>
     <div class="team-layout">
-      <div class="team-left" data-reveal>
+      <div class="team-left">
         <div class="team-portrait">
           <div class="team-card">
             <div style="aspect-ratio:3/4;background:var(--navy);overflow:hidden;">
@@ -778,7 +776,7 @@ body {
         </div>
         <p class="team-tournote">Our full care team is introduced personally during your tour. We believe the best way to know our caregivers is to meet them in the home where they work. <a href="/contact">Schedule a visit</a> and we will make the introductions.</p>
       </div>
-      <div class="team-bio" data-reveal>
+      <div class="team-bio">
         <p class="sc-label" style="display:block;margin-bottom:1rem;">Owner &amp; Primary Caregiver</p>
         <h3 class="team-bio-name">Zinash Shibeshe</h3>
         <p class="team-bio-body">Lake Stevens AFH is owner-operated. Zinash is not a distant administrator: she is the home's primary caregiver, and the person responsible for your loved one's care plan is the same person who greets you at the door on your tour.</p>
@@ -800,7 +798,7 @@ body {
 
 <!-- CTA -->
 <section class="cta-band" aria-label="Visit us">
-  <div class="container" data-reveal>
+  <div class="container">
     <h2 class="cta-band-h2">We'd love to show you our home</h2>
     <p class="cta-band-sub">The best way to know if we're the right fit is to visit. Schedule a private tour at your convenience. No pressure, just a conversation.</p>
     <div class="cta-band-actions">
@@ -896,19 +894,6 @@ document.addEventListener('keydown', function(e) {
   else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
 });
 
-/* Scroll reveal + auto-stagger */
-document.documentElement.classList.add('js-ready');
-var _revEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
-var _pm = new Map();
-_revEls.forEach(function(el) { var p = el.parentElement; if (!_pm.has(p)) _pm.set(p, []); _pm.get(p).push(el); });
-_pm.forEach(function(ch) { if (ch.length > 1) ch.forEach(function(el, i) { el.style.transitionDelay = (i * 70) + 'ms'; }); });
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); } });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-_revEls.forEach(function(el) {
-  const r = el.getBoundingClientRect();
-  if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add('revealed'); } else { revealObs.observe(el); }
-});
 </script>
 <div class="mobile-call-bar" aria-label="Quick contact">
   <a href="tel:+12063833109" class="mcb-call">Call (206) 383-3109</a>

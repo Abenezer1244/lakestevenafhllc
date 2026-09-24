@@ -155,7 +155,7 @@
   --font-body: 'Manrope', sans-serif;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { cursor: pointer; border: none; background: none; font: inherit; }
@@ -268,7 +268,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 .footer-copy { font-size: 12px; color: rgba(237,232,224,0.7); letter-spacing: 0.04em; }
 
 @keyframes fade-up-in {
-  from { opacity: 0; transform: translateY(18px); }
+  from { opacity: 0.35; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -276,8 +276,6 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
   .page-hero-content > *:nth-child(1) { animation-delay: 80ms; }
   .page-hero-content > *:nth-child(2) { animation-delay: 200ms; }
   .page-hero-content > *:nth-child(3) { animation-delay: 300ms; }
-  .js-ready [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.22s ease-out, transform 0.22s ease-out; }
-  .js-ready [data-reveal].revealed { opacity: 1; transform: translateY(0); }
 }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
@@ -341,7 +339,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 
 <section class="services-overview">
   <div class="container">
-    <div class="services-overview-header" data-reveal>
+    <div class="services-overview-header">
       <h2>Care that covers every need, at home</h2>
       <p>We provide a full spectrum of daily care within one intimate setting. Unlike large facilities, we don't require residents to navigate between departments. Everything happens here, by people they know and trust.</p>
     </div>
@@ -354,7 +352,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
       <div class="service-img">
         <img src="/images/dementia-care.webp" width="940" height="788" alt="Caregiver sharing a warm mealtime moment with a memory care resident in our Lake Stevens home" loading="lazy">
       </div>
-      <div class="service-text" data-reveal>
+      <div class="service-text">
         <p class="sc-label">Memory &amp; cognitive support</p>
         <h2 class="service-h2">Dementia &amp; Memory Care in Lake Stevens, WA</h2>
         <p class="service-body">Our intimate environment is uniquely suited to memory care. With only four residents, our caregivers maintain consistent routines, familiar faces, and a calm atmosphere, all shown to reduce distress in residents with dementia and Alzheimer's.</p>
@@ -378,7 +376,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
       <div class="service-img">
         <img src="/images/services-hero.webp" width="1280" height="720" alt="Respectful, hands-on assistance with daily living activities" loading="lazy">
       </div>
-      <div class="service-text" data-reveal>
+      <div class="service-text">
         <p class="sc-label">Personal care</p>
         <h2 class="service-h2">Daily Living Assistance in Lake Stevens, WA</h2>
         <p class="service-body">We provide dignified, respectful assistance with all activities of daily living, from bathing and dressing to grooming and mobility support. Our approach always prioritizes the resident's independence: we help with what is needed, and encourage what is possible.</p>
@@ -401,7 +399,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
       <div class="service-img">
         <img src="/images/gallery/g06.webp" width="1400" height="787" alt="Resident bedroom with adjustable bedside care table used for medication support" loading="lazy">
       </div>
-      <div class="service-text" data-reveal>
+      <div class="service-text">
         <p class="sc-label">Health management</p>
         <h2 class="service-h2">Medication Management in Lake Stevens, WA</h2>
         <p class="service-body">Accurate, on-time medication administration is a cornerstone of our care. We maintain detailed medication logs, coordinate refills, and work directly with pharmacies and prescribing physicians to ensure every resident receives exactly what they need, when they need it.</p>
@@ -424,7 +422,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
       <div class="service-img">
         <img src="/images/gallery/g23.webp" width="1400" height="787" alt="Our oak dining table set for a shared home-cooked meal" loading="lazy">
       </div>
-      <div class="service-text" data-reveal>
+      <div class="service-text">
         <p class="sc-label">Dining &amp; nutrition</p>
         <h2 class="service-h2">Nutritious Meals &amp; Dining in Lake Stevens, WA</h2>
         <p class="service-body">Three home-cooked meals daily, plus snacks, prepared in our kitchen and served at our dining table. We accommodate dietary restrictions, cultural preferences, and personal favorites. Because one of the greatest joys of a good day is a good meal.</p>
@@ -443,15 +441,15 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 
 <section class="care-approach" aria-label="Our care at a glance">
   <div class="container">
-    <div class="care-approach-header" data-reveal>
+    <div class="care-approach-header">
       <h2 class="care-approach-h2">What you can count on, every day</h2>
       <p class="care-approach-sub">Four residents. The same caregivers. Every single day.</p>
     </div>
     <div class="care-stats">
-      <div data-reveal><div class="care-stat-num">24/7</div><div class="care-stat-label">Awake staff on-site</div></div>
-      <div data-reveal><div class="care-stat-num">4</div><div class="care-stat-label">Residents maximum</div></div>
-      <div data-reveal><div class="care-stat-num">2025</div><div class="care-stat-label">Established</div></div>
-      <div data-reveal><div class="care-stat-num">3</div><div class="care-stat-label">Home-cooked meals daily</div></div>
+      <div><div class="care-stat-num">24/7</div><div class="care-stat-label">Awake staff on-site</div></div>
+      <div><div class="care-stat-num">4</div><div class="care-stat-label">Residents maximum</div></div>
+      <div><div class="care-stat-num">2025</div><div class="care-stat-label">Established</div></div>
+      <div><div class="care-stat-num">3</div><div class="care-stat-label">Home-cooked meals daily</div></div>
     </div>
   </div>
 </section>
@@ -534,18 +532,6 @@ document.addEventListener('keydown', function(e) {
   var first = f[0], last = f[f.length - 1];
   if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
   else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-});
-document.documentElement.classList.add('js-ready');
-var _revEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
-var _pm = new Map();
-_revEls.forEach(function(el) { var p = el.parentElement; if (!_pm.has(p)) _pm.set(p, []); _pm.get(p).push(el); });
-_pm.forEach(function(ch) { if (ch.length > 1) ch.forEach(function(el, i) { el.style.transitionDelay = (i * 70) + 'ms'; }); });
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); } });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-_revEls.forEach(function(el) {
-  const r = el.getBoundingClientRect();
-  if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add('revealed'); } else { revealObs.observe(el); }
 });
 </script>
 <div class="mobile-call-bar" aria-label="Quick contact">
