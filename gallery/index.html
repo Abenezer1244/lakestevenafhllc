@@ -125,7 +125,7 @@
 <style>
 :root {
   --parchment: #FAF8F5; --hearthstone: #F0EBE3; --navy: #1B2A4A;
-  --gold: #C5A96A; --moss: #4A5C4E; --slate: #556275; --white: #FFFFFF;
+  --gold: #C5A96A; --gold-deep: #7D6226; --moss: #4A5C4E; --slate: #556275; --white: #FFFFFF;
   --font-display: 'Cormorant Garamond', serif;
   --font-sc: 'Cormorant SC', serif;
   --font-body: 'Manrope', sans-serif;
@@ -139,7 +139,8 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 @media (min-width: 768px) { .container { padding: 0 3rem; } }
 @media (min-width: 1200px) { .container { padding: 0 4rem; } }
-.sc-label { font-family: var(--font-sc); font-size: 11px; font-weight: 400; letter-spacing: 0.28em; color: var(--gold); text-transform: uppercase; }
+.sc-label { font-family: var(--font-sc); font-size: 12px; font-weight: 400; letter-spacing: 0.28em; color: var(--gold-deep); text-transform: uppercase; }
+.page-hero .sc-label, .cta-band .sc-label { color: var(--gold); }
 .btn-primary { display: inline-block; background: var(--gold); color: #0F1825; padding: 0.875rem 2.25rem; font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; transition: opacity 0.15s; }
 .btn-primary:hover { opacity: 0.88; }
 .btn-moss { display: inline-block; background: transparent; color: rgba(237,232,224,0.85); border: 1px solid rgba(237,232,224,0.35); padding: 0.875rem 2.25rem; font-family: var(--font-body); font-size: 11px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; transition: border-color 0.15s, color 0.15s; }

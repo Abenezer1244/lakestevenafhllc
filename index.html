@@ -117,7 +117,7 @@
   --parchment: #FAF8F5;
   --hearthstone: #F0EBE3;
   --navy: #1B2A4A;
-  --gold: #C5A96A;
+  --gold: #C5A96A; --gold-deep: #7D6226;
   --moss: #4A5C4E;
   --slate: #556275;
   --white: #FFFFFF;
@@ -151,12 +151,13 @@ body {
 /* ── TYPOGRAPHY ── */
 .sc-label {
   font-family: var(--font-sc);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.28em;
-  color: var(--gold);
+  color: var(--gold-deep);
   text-transform: uppercase;
 }
+.hero .sc-label, .trust .sc-label, .contact .sc-label { color: var(--gold); }
 
 /* ── BUTTONS ── */
 .btn-primary {
