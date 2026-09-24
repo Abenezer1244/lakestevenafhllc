@@ -291,6 +291,10 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 .footer-links a, .footer-address a, .nav-drawer-contact a { display: inline-flex; align-items: center; min-height: 44px; padding: 0; }
 .nav-logo { display: inline-flex; align-items: center; min-height: 44px; }
 .footer-links li { margin-bottom: 0; }
+/* ── INTERACTION STATES ── */
+.nav-links a { display: inline-flex; align-items: center; min-height: 44px; }
+.btn-primary:active, .btn-ghost:active, .btn-moss:active { transform: translateY(1px); }
+button:disabled, button[aria-busy="true"] { cursor: not-allowed; opacity: 0.6; }
 </style>
 </head>
 <body>
