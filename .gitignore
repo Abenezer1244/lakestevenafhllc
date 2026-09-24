@@ -12,3 +12,4 @@ Thumbs.db
 
 .vercel
 .gstack/
+.playwright-mcp/
