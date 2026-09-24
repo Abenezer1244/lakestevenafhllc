@@ -729,6 +729,10 @@ body {
 .contact-form select option { background: var(--navy); }
 .contact-form textarea { resize: vertical; min-height: 110px; }
 .contact-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.field { display: flex; flex-direction: column; gap: 0.4rem; }
+.field-label { font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: rgba(237,232,224,0.85); }
+.field-optional { font-weight: 400; opacity: 0.8; }
+.contact-form input, .contact-form select, .contact-form textarea { font-size: 16px; }
 @media (max-width: 480px) { .contact-form-row { grid-template-columns: 1fr; } }
 
 /* ════════════════════════════════
@@ -1475,19 +1479,20 @@ body {
         <input type="hidden" name="from_name" value="Lake Stevens AFH Website">
         <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" aria-hidden="true">
         <div class="contact-form-row">
-          <input type="text" name="first-name" placeholder="First Name" autocomplete="given-name" required>
-          <input type="text" name="last-name" placeholder="Last Name" autocomplete="family-name" required>
+          <label class="field"><span class="field-label">First name</span><input type="text" name="first-name" autocomplete="given-name" required></label>
+          <label class="field"><span class="field-label">Last name</span><input type="text" name="last-name" autocomplete="family-name" required></label>
         </div>
-        <input type="email" name="email" placeholder="Email Address" autocomplete="email" required>
-        <input type="tel" name="phone" placeholder="Phone Number" autocomplete="tel">
-        <select name="reason" required aria-label="How can we help?">
-          <option value="" disabled selected>How can we help?</option>
+        <label class="field"><span class="field-label">Email</span><input type="email" name="email" autocomplete="email" required></label>
+        <label class="field"><span class="field-label">Phone <span class="field-optional">(optional)</span></span><input type="tel" name="phone" autocomplete="tel"></label>
+        <label class="field"><span class="field-label">How can we help?</span>
+        <select name="reason" required>
+          <option value="" disabled selected>Choose one</option>
           <option value="tour">Schedule a Tour</option>
           <option value="info">General Information</option>
           <option value="care">Discuss Care Needs</option>
           <option value="availability">Check Availability</option>
-        </select>
-        <textarea name="message" placeholder="Tell us about your loved one and their needs…"></textarea>
+        </select></label>
+        <label class="field"><span class="field-label">Message <span class="field-optional">(optional)</span></span><textarea name="message" placeholder="Tell us about your loved one and their needs…"></textarea></label>
         <button type="submit" class="btn-primary" id="contact-submit" style="width:100%;justify-content:center;">Send Message</button>
         <p class="form-status" id="form-status" aria-live="polite" style="color:rgba(237,232,224,0.85);"></p>
         <p style="font-size:13px;color:rgba(237,232,224,0.7);line-height:1.5;">
