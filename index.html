@@ -330,7 +330,7 @@ body {
   z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 9rem 2rem 5rem;
+  padding: 7rem 1.5rem 3.5rem;
   width: 100%;
 }
 @media (min-width: 768px) { .hero-content { padding: 9rem 3rem 5rem; } }
@@ -364,56 +364,11 @@ body {
   text-shadow: 0 1px 12px rgba(10,16,30,0.65), 0 0 1px rgba(10,16,30,0.4);
   max-width: 520px;
   line-height: 1.65;
-  margin-bottom: 1.75rem;
+  margin-bottom: 2.25rem;
   letter-spacing: 0.01em;
 }
 
-.hero-story {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 300;
-  font-size: clamp(17px, 2.2vw, 21px);
-  line-height: 1.65;
-  color: rgba(244, 239, 229, 0.98);
-  text-shadow: 0 1px 12px rgba(10,16,30,0.65), 0 0 1px rgba(10,16,30,0.4);
-  max-width: 500px;
-  border-left: 2px solid var(--gold);
-  padding-left: 1.5rem;
-  margin-bottom: 2.75rem;
-}
 
-.hero-features {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem 1.4rem;
-  list-style: none;
-  margin: 0 0 2.5rem;
-  padding: 0;
-  max-width: 560px;
-}
-.hero-features li {
-  font-family: var(--font-sc);
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 400;
-  color: rgba(212, 184, 121, 1);
-  text-shadow: 0 1px 8px rgba(10,16,30,0.65), 0 0 1px rgba(10,16,30,0.4);
-  position: relative;
-  padding-right: 1.4rem;
-}
-.hero-features li:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 50%;
-  width: 1px;
-  height: 11px;
-  background: rgba(197, 169, 106, 0.4);
-  transform: translateY(-50%);
-}
-.hero-features li:last-child { padding-right: 0; }
 
 .hero-actions {
   display: flex;
@@ -1256,20 +1211,9 @@ body {
     </h1>
 
     <p class="hero-what">A licensed adult family home in Lake Stevens, WA providing 24/7 personalized care for seniors in a real home, not a facility. Maximum 4 residents.</p>
-    <blockquote class="hero-story">
-      &ldquo;With only four residents, we learn every routine, every favorite meal,
-      every story. That is what a real home makes possible. We actually know.&rdquo;
-    </blockquote>
-
-    <ul class="hero-features" aria-label="Highlights">
-      <li>Near Lake Stevens</li>
-      <li>Mountain views</li>
-      <li>Rooms available</li>
-    </ul>
-
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Schedule a Visit</a>
-      <a href="/gallery" class="btn-ghost">Gallery</a>
+      <a href="/gallery" class="btn-ghost">See the home</a>
     </div>
   </div>
 </section>
