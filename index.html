@@ -523,17 +523,22 @@ body {
 
 .service-card {
   position: relative;
+  display: block;
   overflow: hidden;
   background: var(--navy);
+  color: inherit;
 }
+.service-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.service-card-arrow { color: var(--gold); display: inline-block; transition: transform 0.2s ease-out; }
+.service-card:hover .service-card-arrow, .service-card:focus-visible .service-card-arrow { transform: translateX(4px); }
 .service-card img {
   width: 100%;
   aspect-ratio: 3/4;
   object-fit: cover;
-  transition: transform 0.7s ease, filter 0.4s;
+  transition: transform 0.7s ease-out;
   filter: brightness(0.75) saturate(0.9);
 }
-.service-card:hover img { transform: scale(1.05); filter: brightness(0.65) saturate(0.85); }
+.service-card:hover img, .service-card:focus-visible img { transform: scale(1.04); }
 .service-card-overlay {
   position: absolute;
   inset: 0;
@@ -559,14 +564,15 @@ body {
 
 .service-card h3 {
   font-family: var(--font-display);
-  font-weight: 300;
-  font-size: 22px;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 24px;
   color: #EDE8E0;
   line-height: 1.2;
   margin-bottom: 0.5rem;
 }
 .service-card p {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.65;
   color: rgba(237,232,224,0.75);
 }
@@ -1273,50 +1279,50 @@ body {
       <p class="services-sub">Designed to support health, happiness, and independence.</p>
     </div>
     <div class="services-grid">
-      <article class="service-card">
+      <a class="service-card" href="/services#dementia">
         <img
           src="/images/dementia-care.webp"
           width="940" height="788"
           alt="Dementia Care: specialized memory support in a calm environment"
           loading="lazy">
         <div class="service-card-overlay">
-          <h3>Dementia Care</h3>
+          <h3>Dementia Care <span class="service-card-arrow" aria-hidden="true">&rarr;</span></h3>
           <p>Specialized, gentle support for memory conditions in a calm, familiar setting.</p>
         </div>
-      </article>
-      <article class="service-card">
+      </a>
+      <a class="service-card" href="/services#daily">
         <img
           src="/images/services-hero.webp"
           width="1280" height="720"
           alt="Daily Assistance: respectful help with everyday tasks"
           loading="lazy">
         <div class="service-card-overlay">
-          <h3>Daily Assistance</h3>
+          <h3>Daily Assistance <span class="service-card-arrow" aria-hidden="true">&rarr;</span></h3>
           <p>Respectful help with bathing, dressing, grooming, and mobility.</p>
         </div>
-      </article>
-      <article class="service-card">
+      </a>
+      <a class="service-card" href="/services#medication">
         <img
           src="/images/gallery/g06.webp"
           width="1400" height="787"
           alt="Medication Management: resident bedroom with adjustable bedside care table"
           loading="lazy">
         <div class="service-card-overlay">
-          <h3>Medication Management</h3>
+          <h3>Medication Management <span class="service-card-arrow" aria-hidden="true">&rarr;</span></h3>
           <p>Accurate, timely administration with careful tracking by trained staff.</p>
         </div>
-      </article>
-      <article class="service-card">
+      </a>
+      <a class="service-card" href="/services#meals">
         <img
           src="/images/gallery/g23.webp"
           width="1400" height="787"
           alt="Nutritious Meals: our oak dining table set for a shared home-cooked meal"
           loading="lazy">
         <div class="service-card-overlay">
-          <h3>Nutritious Meals</h3>
+          <h3>Nutritious Meals <span class="service-card-arrow" aria-hidden="true">&rarr;</span></h3>
           <p>Home-cooked meals every day, tailored to dietary needs and personal favorites.</p>
         </div>
-      </article>
+      </a>
     </div>
   </div>
 </section>
