@@ -432,7 +432,7 @@ body {
   padding: 6rem 0;
   background: var(--hearthstone);
 }
-.philosophy-header { text-align: center; max-width: 640px; margin: 0 auto 4rem; }
+.philosophy-header { max-width: 640px; margin: 0 0 3.5rem; }
 .philosophy-h2 {
   font-family: var(--font-display);
   font-style: italic;
@@ -448,33 +448,25 @@ body {
 .philosophy-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 2.5rem 3rem;
+  list-style: none;
 }
 @media (min-width: 640px) { .philosophy-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .philosophy-grid { grid-template-columns: repeat(3, 1fr); } }
 .philosophy-card {
-  background: var(--parchment);
-  padding: 2.25rem;
-  border-top: 2px solid var(--gold);
-}
-.philosophy-card-num {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 40px;
-  font-weight: 300;
-  color: var(--gold);
-  opacity: 0.5;
-  line-height: 1;
-  margin-bottom: 1rem;
+  border-top: 1px solid rgba(125,98,38,0.45);
+  padding-top: 1.75rem;
 }
 .philosophy-card h3 {
   font-family: var(--font-display);
-  font-weight: 300;
-  font-size: 22px;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
   color: var(--navy);
   margin-bottom: 0.75rem;
 }
-.philosophy-card p { font-size: 16px; line-height: 1.65; color: var(--slate); }
+.philosophy-card p { font-size: 16px; line-height: 1.7; color: var(--slate); }
 
 /* TEAM */
 .team {
@@ -738,38 +730,32 @@ body {
       <h2 class="philosophy-h2">Our care philosophy</h2>
       <p class="philosophy-sub">Every decision we make flows from the same source: dignity first, always.</p>
     </div>
-    <div class="philosophy-grid">
-      <div class="philosophy-card" data-reveal>
-        <div class="philosophy-card-num">01</div>
-        <h3>Know Each Person</h3>
+    <ul class="philosophy-grid">
+      <li class="philosophy-card">
+        <h3>Know each person</h3>
         <p>We begin by listening to the resident and to the family. Preferences, routines, and history shape every aspect of their experience here.</p>
-      </div>
-      <div class="philosophy-card" data-reveal>
-        <div class="philosophy-card-num">02</div>
-        <h3>Home, Not Facility</h3>
+      </li>
+      <li class="philosophy-card">
+        <h3>Home, not facility</h3>
         <p>Our space is designed to feel like a well-loved home: warm lighting, comfortable furnishings, meals at a real dining table. Institutional aesthetics have no place here.</p>
-      </div>
-      <div class="philosophy-card" data-reveal>
-        <div class="philosophy-card-num">03</div>
-        <h3>Awake &amp; Present</h3>
+      </li>
+      <li class="philosophy-card">
+        <h3>Awake &amp; present</h3>
         <p>We maintain awake staff 24 hours a day, 7 days a week. There is no overnight shift where a resident rings a bell into the dark and waits.</p>
-      </div>
-      <div class="philosophy-card" data-reveal>
-        <div class="philosophy-card-num">04</div>
-        <h3>Family as Partners</h3>
+      </li>
+      <li class="philosophy-card">
+        <h3>Family as partners</h3>
         <p>You are not handing your loved one over. You are inviting us into a shared care relationship. We communicate openly and welcome visits at any time.</p>
-      </div>
-      <div class="philosophy-card" data-reveal>
-        <div class="philosophy-card-num">05</div>
-        <h3>Respect for Autonomy</h3>
+      </li>
+      <li class="philosophy-card">
+        <h3>Respect for autonomy</h3>
         <p>We support independence wherever possible. The goal is always to help residents do what they can, not to do everything for them.</p>
-      </div>
-      <div class="philosophy-card" data-reveal>
-        <div class="philosophy-card-num">06</div>
-        <h3>Licensed &amp; Accountable</h3>
+      </li>
+      <li class="philosophy-card">
+        <h3>Licensed &amp; accountable</h3>
         <p>We are a licensed adult family home in the State of Washington, subject to regular inspection. Our record is clean and our doors are open to scrutiny.</p>
-      </div>
-    </div>
+      </li>
+    </ul>
   </div>
 </section>
 
