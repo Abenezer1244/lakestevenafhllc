@@ -1039,7 +1039,7 @@ body {
   color: var(--gold);
 }
 .nav-drawer-close {
-  width: 36px; height: 36px;
+  width: 44px; height: 44px;
   display: flex; align-items: center; justify-content: center;
   position: relative;
   flex-shrink: 0;
@@ -1609,7 +1609,16 @@ body {
   hamburger.addEventListener('click', openDrawer);
   drawerClose.addEventListener('click', closeDrawer);
   drawerOverlay.addEventListener('click', closeDrawer);
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeDrawer(); });
+  document.addEventListener('keydown', function(e) {
+    if (!drawer.classList.contains('open')) return;
+    if (e.key === 'Escape') { closeDrawer(); return; }
+    if (e.key !== 'Tab') return;
+    var f = drawer.querySelectorAll('a[href], button:not([disabled])');
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
 
   /* ── Contact form ── */
   var contactForm = document.getElementById('contact-form');

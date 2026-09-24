@@ -171,7 +171,7 @@ body { font-family: var(--font-body); font-weight: 300; font-size: 17px; line-he
 .nav-drawer.open .nav-drawer-panel { transform: translateX(0); }
 .nav-drawer-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2.5rem; }
 .nav-drawer-brand { font-family: var(--font-sc); font-size: 12px; letter-spacing: 0.22em; color: var(--gold); }
-.nav-drawer-close { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; position: relative; flex-shrink: 0; }
+.nav-drawer-close { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; position: relative; flex-shrink: 0; }
 .nav-drawer-close::before, .nav-drawer-close::after { content: ''; position: absolute; width: 20px; height: 1px; background: rgba(237,232,224,0.7); }
 .nav-drawer-close::before { transform: rotate(45deg); }
 .nav-drawer-close::after { transform: rotate(-45deg); }
@@ -569,7 +569,16 @@ function closeDrawer() { drawer.classList.remove('open'); drawer.setAttribute('a
 hamburger.addEventListener('click', openDrawer);
 drawerClose.addEventListener('click', closeDrawer);
 drawerOverlay.addEventListener('click', closeDrawer);
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+document.addEventListener('keydown', function(e) {
+  if (!drawer.classList.contains('open')) return;
+  if (e.key === 'Escape') { closeDrawer(); return; }
+  if (e.key !== 'Tab') return;
+  var f = drawer.querySelectorAll('a[href], button:not([disabled])');
+  if (!f.length) return;
+  var first = f[0], last = f[f.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+});
 document.documentElement.classList.add('js-ready');
 var _revEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
 var _pm = new Map();
