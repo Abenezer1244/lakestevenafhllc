@@ -827,7 +827,7 @@ body {
 
 /* ════ WHO IS THIS FOR ════ */
 .who { background: var(--hearthstone); padding: 5rem 0; }
-.who-header { text-align: center; max-width: 600px; margin: 0 auto 3.5rem; }
+.who-header { max-width: 640px; margin: 0 0 3.5rem; }
 .who-header h2 {
   font-family: var(--font-display);
   font-style: italic;
@@ -842,40 +842,27 @@ body {
 .who-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2.5rem;
+  list-style: none;
 }
-@media (min-width: 640px) { .who-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 640px) { .who-grid { grid-template-columns: repeat(3, 1fr); gap: 3rem; } }
 .who-card {
-  background: var(--parchment);
-  border-top: 2px solid var(--gold);
-  padding: 2rem 1.75rem;
-}
-.who-card-icon {
-  width: 38px;
-  height: 38px;
-  margin-bottom: 1.25rem;
-  color: var(--gold);
-  display: block;
+  border-top: 1px solid rgba(125,98,38,0.45);
+  padding-top: 1.75rem;
 }
 .who-card h3 {
   font-family: var(--font-display);
   font-style: italic;
-  font-weight: 300;
-  font-size: 22px;
+  font-weight: 400;
+  font-size: 26px;
   color: var(--navy);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
   line-height: 1.2;
 }
 .who-card p { font-size: 16px; line-height: 1.75; color: var(--slate); }
 .who-note {
-  margin-top: 2.5rem;
-  background: var(--parchment);
-  border: 1px solid rgba(197,169,106,0.3);
-  border-top: 2px solid var(--gold);
-  padding: 1.25rem 2rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 3.5rem;
+  max-width: 640px;
 }
 .who-note p { font-size: 16px; line-height: 1.65; color: var(--slate); }
 .who-note strong { color: var(--navy); font-weight: 500; }
@@ -893,28 +880,7 @@ body {
   line-height: 1.15;
   margin-top: 0.75rem;
 }
-.trust-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
-}
-@media (min-width: 640px) { .trust-grid { grid-template-columns: repeat(3, 1fr); } }
-.trust-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(197,169,106,0.2);
-  padding: 2rem;
-  text-align: center;
-}
-.trust-card-num {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 40px;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
-.trust-card-label { font-size: 13px; color: rgba(237,232,224,0.55); line-height: 1.6; }
+.trust-lede { font-size: 16px; line-height: 1.65; color: rgba(237,232,224,0.82); margin-top: 1rem; }
 .trust-license {
   background: rgba(197,169,106,0.07);
   border: 1px solid rgba(197,169,106,0.22);
@@ -941,9 +907,9 @@ body {
 }
 .trust-badge-text p:first-child {
   font-family: var(--font-sc);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.25em;
-  color: rgba(197,169,106,0.7);
+  color: var(--gold);
   margin-bottom: 0.25rem;
 }
 .trust-badge-text p:last-child { font-size: 15px; color: rgba(237,232,224,0.85); }
@@ -971,9 +937,9 @@ body {
 }
 .trust-owner-text p:first-child {
   font-family: var(--font-sc);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.25em;
-  color: rgba(197,169,106,0.7);
+  color: var(--gold);
   margin-bottom: 0.25rem;
 }
 .trust-owner-text p:last-child { font-size: 15px; color: rgba(237,232,224,0.85); }
@@ -1250,23 +1216,20 @@ body {
       <h2>Is Lake Stevens AFH the right fit for your family?</h2>
       <p>We serve seniors and families who want genuine, personalized care in a real home, not a large institution with rotating staff and numbered beds.</p>
     </div>
-    <div class="who-grid">
-      <div class="who-card" data-reveal>
-        <svg class="who-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+    <ul class="who-grid">
+      <li class="who-card">
         <h3>Seniors needing daily support</h3>
         <p>Your parent needs help with bathing, dressing, meals, and mobility, but still deserves independence and dignity in a home that truly feels like theirs.</p>
-      </div>
-      <div class="who-card" data-reveal>
-        <svg class="who-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </li>
+      <li class="who-card">
         <h3>Loved ones with memory challenges</h3>
         <p>Dementia and Alzheimer's require calm, consistent environments. Our small home of just 4 residents means familiar faces, steady routines, and a place that doesn't overwhelm.</p>
-      </div>
-      <div class="who-card" data-reveal>
-        <svg class="who-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </li>
+      <li class="who-card">
         <h3>Families seeking real peace of mind</h3>
         <p>You want to know your loved one is safe and genuinely happy, and you want to be able to call any time and speak with someone who actually knows them by name.</p>
-      </div>
-    </div>
+      </li>
+    </ul>
     <div class="who-note" data-reveal>
       <p><strong>Not sure if we're the right fit?</strong> We're happy to talk through your loved one's specific needs. No pressure, no sales pitch. Call us at <a href="tel:+12063833109">(206) 383-3109</a> or <a href="/contact">send us a message</a>.</p>
     </div>
@@ -1371,20 +1334,7 @@ body {
     <div class="trust-header" data-reveal>
       <p class="sc-label">Why trust us</p>
       <h2>Licensed, regulated,<br>and deeply committed</h2>
-    </div>
-    <div class="trust-grid">
-      <div class="trust-card" data-reveal>
-        <div class="trust-card-num">4</div>
-        <div class="trust-card-label">Maximum residents. We stay small so care stays personal</div>
-      </div>
-      <div class="trust-card" data-reveal>
-        <div class="trust-card-num">24/7</div>
-        <div class="trust-card-label">On-site caregivers, awake and present every hour of every day</div>
-      </div>
-      <div class="trust-card" data-reveal>
-        <div class="trust-card-num">WA</div>
-        <div class="trust-card-label">State-licensed Adult Family Home under DSHS oversight and inspection</div>
-      </div>
+      <p class="trust-lede">A state-licensed Adult Family Home under Washington DSHS oversight and inspection.</p>
     </div>
     <div class="trust-license" data-reveal>
       <div class="trust-badge">
